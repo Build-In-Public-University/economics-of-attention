@@ -13,6 +13,11 @@ REQUIRED = [
     ROOT / "docs/RESEARCH-BOUNDARY.md",
     ROOT / "docs/HUB-CONNECTION.md",
     ROOT / "docs/RELATED-WORK-LEDGER.md",
+    ROOT / "docs/FOUNDATIONAL-CITATIONS.md",
+    ROOT / "docs/FORMAL-MODEL.md",
+    ROOT / "docs/EXPERIMENT-ATTENTION-REGIME-SHIFT.md",
+    ROOT / "src/attention_experiment.py",
+    ROOT / "artifacts/attention-v1/attention-regime-shift.json",
 ]
 
 def main() -> int:
@@ -32,6 +37,9 @@ def main() -> int:
         assert marker in draft, f"draft missing marker: {marker}"
     boundary = (ROOT / "docs/RESEARCH-BOUNDARY.md").read_text()
     assert "Not established" in boundary and "empirical" in boundary
+    receipt = json.loads((ROOT / "artifacts/attention-v1/attention-regime-shift.json").read_text())
+    assert receipt["status"] == "synthetic_fixture_not_empirical"
+    assert set(receipt["claim_targets"]) == {"C1", "C4"}
     print(f"validated {len(claims['claims'])} claims; no empirical results asserted")
     return 0
 

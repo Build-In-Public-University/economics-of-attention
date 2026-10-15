@@ -29,6 +29,11 @@ The hub owns shared vocabulary, evidence conventions, and cross-paper research i
 - `docs/ARGUMENT-MAP.md` — dependency order for the argument.
 - `docs/RESEARCH-BOUNDARY.md` — what is and is not established.
 - `docs/RELATED-WORK-LEDGER.md` — sources to retrieve and verify before citation.
+- `docs/FOUNDATIONAL-CITATIONS.md` — verified source notes for Shannon, Hayek, Grossman–Stiglitz, and Vaswani.
+- `docs/FORMAL-MODEL.md` — standalone mathematical specification and claim boundary.
+- `docs/EXPERIMENT-ATTENTION-REGIME-SHIFT.md` — synthetic experiment contract for C1/C4.
+- `src/attention_experiment.py` — dependency-free attention/compression instrument.
+- `artifacts/attention-v1/` — machine-readable synthetic receipt.
 - `docs/HUB-CONNECTION.md` — explicit relationship to the shared research hub.
 - `scripts/validate.py` — dependency-free structural validator.
 - `tests/test_repository.py` — executable repository invariants.
@@ -38,6 +43,7 @@ The hub owns shared vocabulary, evidence conventions, and cross-paper research i
 ```bash
 python3 scripts/validate.py
 python3 -m unittest discover -s tests -v
+python3 -m src.attention_experiment --output artifacts/attention-v1/attention-regime-shift.json
 ```
 
 A passing validator establishes repository structure and claim metadata only. It does not establish the theory, empirical predictions, or any causal result. The machine is a ledger with opinions about attention; reality still gets the final vote.
