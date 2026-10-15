@@ -5,7 +5,7 @@ feature budget. It is not a model of human cognition or market behavior.
 """
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 import json
 import math
 import random
@@ -87,12 +87,68 @@ def _aggregate(rows: list[dict[str, dict[str, float | int]]]) -> dict[str, dict[
     result: dict[str, dict[str, float | int]] = {}
     for name in names:
         result[name] = {}
-        for metric in ("accuracy", "novel_signal_coverage", "retained_features", "observer_count"):
+        for metric in rows[0][name].keys():
             values = [float(row[name][metric]) for row in rows]
             result[name][metric] = mean(values)
             if metric in ("accuracy", "novel_signal_coverage"):
                 result[name][f"std_{metric}"] = pstdev(values)
     return result
+
+
+def _policy_metrics(config: ExperimentConfig, support: set[int], causal: tuple[int, ...], seed: int) -> dict[str, float | int]:
+    score_rng = random.Random(seed)
+    return {
+        "accuracy": _accuracy(score_rng, support, set(causal), config),
+        "novel_signal_coverage": len(support & set(causal)) / config.causal_width,
+        "retained_features": len(support),
+    }
+
+
+def _abundance_sweep(config: ExperimentConfig) -> list[dict[str, object]]:
+    rows: list[dict[str, object]] = []
+    for feature_count in (5, 10, 20, 50, 100, 200, 500, 1000):
+        local = replace(config, feature_count=feature_count)
+        policy_rows: dict[str, list[dict[str, float | int]]] = {"random": [], "expert": [], "mixed": []}
+        for seed in config.seeds:
+            rng = random.Random(seed + feature_count * 1009)
+            expert = set(local.stable_causal)
+            random_support = set(rng.sample(range(feature_count), local.observer_budget))
+            outside_expert = [i for i in range(feature_count) if i not in expert]
+            exploratory = rng.choice(outside_expert) if outside_expert else None
+            mixed = (expert - {max(expert)}) | {exploratory} if exploratory is not None else expert
+            for name, support in (("random", random_support), ("expert", expert), ("mixed", mixed)):
+                policy_rows[name].append(_policy_metrics(local, support, local.stable_causal, seed + feature_count))
+        row: dict[str, object] = {"feature_count": feature_count, "attention_budget": local.observer_budget}
+        for name, metrics in policy_rows.items():
+            row[name] = _aggregate([{name: metric} for metric in metrics])[name]
+        rows.append(row)
+    return rows
+
+
+def _diversity_sweep(config: ExperimentConfig) -> list[dict[str, object]]:
+    rows: list[dict[str, object]] = []
+    total_observers = config.explorer_count + 1
+    for exploratory_count in (0, 1, 2, 5, 10, 20):
+        stable_rows: list[dict[str, float | int]] = []
+        shifted_rows: list[dict[str, float | int]] = []
+        diversity_values: list[float] = []
+        for seed in config.seeds:
+            rng = random.Random(seed + exploratory_count * 10007)
+            expert = set(config.stable_causal)
+            explorers = [set(rng.sample(range(config.feature_count), config.observer_budget)) for _ in range(exploratory_count)]
+            support = expert | set().union(*explorers) if explorers else expert
+            diversity_values.append(len(support) / (total_observers * config.observer_budget))
+            stable_rows.append(_policy_metrics(config, support, config.stable_causal, seed + 1))
+            shifted_rows.append(_policy_metrics(config, support, config.shifted_causal, seed + 2))
+        rows.append({
+            "exploratory_observers": exploratory_count,
+            "total_observers": total_observers,
+            "total_attention_slots": total_observers * config.observer_budget,
+            "attention_diversity": mean(diversity_values),
+            "stable": _aggregate([{"network": row} for row in stable_rows])["network"],
+            "regime_shift": _aggregate([{"network": row} for row in shifted_rows])["network"],
+        })
+    return rows
 
 
 def run_experiment(config: ExperimentConfig | None = None) -> dict:
@@ -116,6 +172,8 @@ def run_experiment(config: ExperimentConfig | None = None) -> dict:
             "shifted_causal_features": list(config.shifted_causal),
         },
         "conditions": {"stable": _aggregate(stable), "regime_shift": _aggregate(shifted)},
+        "information_abundance_sweep": _abundance_sweep(config),
+        "attention_diversity_sweep": _diversity_sweep(config),
         "interpretation_boundary": "This instrument measures a declared synthetic representation mechanism; it is not evidence about human, market, or production-model performance.",
     }
 

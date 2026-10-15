@@ -47,3 +47,5 @@ python3 -m src.attention_experiment --output artifacts/attention-v1/attention-re
 ```
 
 A passing validator establishes repository structure and claim metadata only. It does not establish the theory, empirical predictions, or any causal result. The machine is a ledger with opinions about attention; reality still gets the final vote.
+
+The current receipt contains an information-abundance sweep and a cost-matched attention-diversity sweep. Both remain synthetic instrument results. C1 and C4 retain `prospective` evidence status; the receipt demonstrates the simulator's behavior, not a human or market effect.

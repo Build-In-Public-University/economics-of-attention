@@ -1,4 +1,126 @@
 {
+  "attention_diversity_sweep": [
+    {
+      "attention_diversity": 0.047619047619047616,
+      "exploratory_observers": 0,
+      "regime_shift": {
+        "accuracy": 0.494975,
+        "novel_signal_coverage": 0.0,
+        "retained_features": 5.0,
+        "std_accuracy": 0.0074169990562221325,
+        "std_novel_signal_coverage": 0.0
+      },
+      "stable": {
+        "accuracy": 1.0,
+        "novel_signal_coverage": 1.0,
+        "retained_features": 5.0,
+        "std_accuracy": 0.0,
+        "std_novel_signal_coverage": 0.0
+      },
+      "total_attention_slots": 105,
+      "total_observers": 21
+    },
+    {
+      "attention_diversity": 0.0938095238095238,
+      "exploratory_observers": 1,
+      "regime_shift": {
+        "accuracy": 0.522725,
+        "novel_signal_coverage": 0.030000000000000002,
+        "retained_features": 9.85,
+        "std_accuracy": 0.06935587123668767,
+        "std_novel_signal_coverage": 0.07141428428542851
+      },
+      "stable": {
+        "accuracy": 1.0,
+        "novel_signal_coverage": 1.0,
+        "retained_features": 9.85,
+        "std_accuracy": 0.0,
+        "std_novel_signal_coverage": 0.0
+      },
+      "total_attention_slots": 105,
+      "total_observers": 21
+    },
+    {
+      "attention_diversity": 0.13333333333333333,
+      "exploratory_observers": 2,
+      "regime_shift": {
+        "accuracy": 0.5434249999999999,
+        "novel_signal_coverage": 0.05,
+        "retained_features": 14.0,
+        "std_accuracy": 0.0836697787435822,
+        "std_novel_signal_coverage": 0.08660254037844387
+      },
+      "stable": {
+        "accuracy": 1.0,
+        "novel_signal_coverage": 1.0,
+        "retained_features": 14.0,
+        "std_accuracy": 0.0,
+        "std_novel_signal_coverage": 0.0
+      },
+      "total_attention_slots": 105,
+      "total_observers": 21
+    },
+    {
+      "attention_diversity": 0.2509523809523809,
+      "exploratory_observers": 5,
+      "regime_shift": {
+        "accuracy": 0.6394,
+        "novel_signal_coverage": 0.22,
+        "retained_features": 26.35,
+        "std_accuracy": 0.10189340017881433,
+        "std_novel_signal_coverage": 0.18867962264113208
+      },
+      "stable": {
+        "accuracy": 1.0,
+        "novel_signal_coverage": 1.0,
+        "retained_features": 26.35,
+        "std_accuracy": 0.0,
+        "std_novel_signal_coverage": 0.0
+      },
+      "total_attention_slots": 105,
+      "total_observers": 21
+    },
+    {
+      "attention_diversity": 0.4114285714285714,
+      "exploratory_observers": 10,
+      "regime_shift": {
+        "accuracy": 0.7167,
+        "novel_signal_coverage": 0.36,
+        "retained_features": 43.2,
+        "std_accuracy": 0.054508577306695505,
+        "std_novel_signal_coverage": 0.1624807680927192
+      },
+      "stable": {
+        "accuracy": 1.0,
+        "novel_signal_coverage": 1.0,
+        "retained_features": 43.2,
+        "std_accuracy": 0.0,
+        "std_novel_signal_coverage": 0.0
+      },
+      "total_attention_slots": 105,
+      "total_observers": 21
+    },
+    {
+      "attention_diversity": 0.6328571428571429,
+      "exploratory_observers": 20,
+      "regime_shift": {
+        "accuracy": 0.79095,
+        "novel_signal_coverage": 0.64,
+        "retained_features": 66.45,
+        "std_accuracy": 0.09031637448436469,
+        "std_novel_signal_coverage": 0.21540659228538017
+      },
+      "stable": {
+        "accuracy": 1.0,
+        "novel_signal_coverage": 1.0,
+        "retained_features": 66.45,
+        "std_accuracy": 0.0,
+        "std_novel_signal_coverage": 0.0
+      },
+      "total_attention_slots": 105,
+      "total_observers": 21
+    }
+  ],
   "claim_targets": [
     "C1",
     "C4"
@@ -100,6 +222,208 @@
     ],
     "trials_per_seed": 2000
   },
+  "information_abundance_sweep": [
+    {
+      "attention_budget": 5,
+      "expert": {
+        "accuracy": 1.0,
+        "novel_signal_coverage": 1.0,
+        "retained_features": 5.0,
+        "std_accuracy": 0.0,
+        "std_novel_signal_coverage": 0.0
+      },
+      "feature_count": 5,
+      "mixed": {
+        "accuracy": 1.0,
+        "novel_signal_coverage": 1.0,
+        "retained_features": 5.0,
+        "std_accuracy": 0.0,
+        "std_novel_signal_coverage": 0.0
+      },
+      "random": {
+        "accuracy": 1.0,
+        "novel_signal_coverage": 1.0,
+        "retained_features": 5.0,
+        "std_accuracy": 0.0,
+        "std_novel_signal_coverage": 0.0
+      }
+    },
+    {
+      "attention_budget": 5,
+      "expert": {
+        "accuracy": 1.0,
+        "novel_signal_coverage": 1.0,
+        "retained_features": 5.0,
+        "std_accuracy": 0.0,
+        "std_novel_signal_coverage": 0.0
+      },
+      "feature_count": 10,
+      "mixed": {
+        "accuracy": 0.813125,
+        "novel_signal_coverage": 0.8,
+        "retained_features": 5.0,
+        "std_accuracy": 0.008895047779523145,
+        "std_novel_signal_coverage": 0.0
+      },
+      "random": {
+        "accuracy": 0.763225,
+        "novel_signal_coverage": 0.53,
+        "retained_features": 5.0,
+        "std_accuracy": 0.0839242925201041,
+        "std_novel_signal_coverage": 0.1705872210923198
+      }
+    },
+    {
+      "attention_budget": 5,
+      "expert": {
+        "accuracy": 1.0,
+        "novel_signal_coverage": 1.0,
+        "retained_features": 5.0,
+        "std_accuracy": 0.0,
+        "std_novel_signal_coverage": 0.0
+      },
+      "feature_count": 20,
+      "mixed": {
+        "accuracy": 0.812625,
+        "novel_signal_coverage": 0.8,
+        "retained_features": 5.0,
+        "std_accuracy": 0.009754325963386691,
+        "std_novel_signal_coverage": 0.0
+      },
+      "random": {
+        "accuracy": 0.6417,
+        "novel_signal_coverage": 0.21000000000000002,
+        "retained_features": 5.0,
+        "std_accuracy": 0.08478124792664944,
+        "std_novel_signal_coverage": 0.1609347693943108
+      }
+    },
+    {
+      "attention_budget": 5,
+      "expert": {
+        "accuracy": 1.0,
+        "novel_signal_coverage": 1.0,
+        "retained_features": 5.0,
+        "std_accuracy": 0.0,
+        "std_novel_signal_coverage": 0.0
+      },
+      "feature_count": 50,
+      "mixed": {
+        "accuracy": 0.812925,
+        "novel_signal_coverage": 0.8,
+        "retained_features": 5.0,
+        "std_accuracy": 0.007565175146683638,
+        "std_novel_signal_coverage": 0.0
+      },
+      "random": {
+        "accuracy": 0.566925,
+        "novel_signal_coverage": 0.08,
+        "retained_features": 5.0,
+        "std_accuracy": 0.09046771178160748,
+        "std_novel_signal_coverage": 0.11661903789690602
+      }
+    },
+    {
+      "attention_budget": 5,
+      "expert": {
+        "accuracy": 1.0,
+        "novel_signal_coverage": 1.0,
+        "retained_features": 5.0,
+        "std_accuracy": 0.0,
+        "std_novel_signal_coverage": 0.0
+      },
+      "feature_count": 100,
+      "mixed": {
+        "accuracy": 0.812925,
+        "novel_signal_coverage": 0.8,
+        "retained_features": 5.0,
+        "std_accuracy": 0.008459129683365757,
+        "std_novel_signal_coverage": 0.0
+      },
+      "random": {
+        "accuracy": 0.55695,
+        "novel_signal_coverage": 0.060000000000000005,
+        "retained_features": 5.0,
+        "std_accuracy": 0.08558882812610534,
+        "std_novel_signal_coverage": 0.0916515138991168
+      }
+    },
+    {
+      "attention_budget": 5,
+      "expert": {
+        "accuracy": 1.0,
+        "novel_signal_coverage": 1.0,
+        "retained_features": 5.0,
+        "std_accuracy": 0.0,
+        "std_novel_signal_coverage": 0.0
+      },
+      "feature_count": 200,
+      "mixed": {
+        "accuracy": 0.81315,
+        "novel_signal_coverage": 0.8,
+        "retained_features": 5.0,
+        "std_accuracy": 0.008618439533929547,
+        "std_novel_signal_coverage": 0.0
+      },
+      "random": {
+        "accuracy": 0.499975,
+        "novel_signal_coverage": 0.0,
+        "retained_features": 5.0,
+        "std_accuracy": 0.009007600956969617,
+        "std_novel_signal_coverage": 0.0
+      }
+    },
+    {
+      "attention_budget": 5,
+      "expert": {
+        "accuracy": 1.0,
+        "novel_signal_coverage": 1.0,
+        "retained_features": 5.0,
+        "std_accuracy": 0.0,
+        "std_novel_signal_coverage": 0.0
+      },
+      "feature_count": 500,
+      "mixed": {
+        "accuracy": 0.8149,
+        "novel_signal_coverage": 0.8,
+        "retained_features": 5.0,
+        "std_accuracy": 0.008571172615225981,
+        "std_novel_signal_coverage": 0.0
+      },
+      "random": {
+        "accuracy": 0.5172,
+        "novel_signal_coverage": 0.02,
+        "retained_features": 5.0,
+        "std_accuracy": 0.0540051849362633,
+        "std_novel_signal_coverage": 0.060000000000000005
+      }
+    },
+    {
+      "attention_budget": 5,
+      "expert": {
+        "accuracy": 1.0,
+        "novel_signal_coverage": 1.0,
+        "retained_features": 5.0,
+        "std_accuracy": 0.0,
+        "std_novel_signal_coverage": 0.0
+      },
+      "feature_count": 1000,
+      "mixed": {
+        "accuracy": 0.813875,
+        "novel_signal_coverage": 0.8,
+        "retained_features": 5.0,
+        "std_accuracy": 0.006424319030060682,
+        "std_novel_signal_coverage": 0.0
+      },
+      "random": {
+        "accuracy": 0.5015,
+        "novel_signal_coverage": 0.0,
+        "retained_features": 5.0,
+        "std_accuracy": 0.010893805579318912,
+        "std_novel_signal_coverage": 0.0
+      }
+    }
+  ],
   "instrument": "attention_compression_regime_shift",
   "interpretation_boundary": "This instrument measures a declared synthetic representation mechanism; it is not evidence about human, market, or production-model performance.",
   "schema_version": "1.0",

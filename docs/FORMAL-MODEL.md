@@ -86,6 +86,26 @@ The attention-regime-shift instrument instantiates a finite feature environment 
 
 The receipt is `synthetic_fixture_not_empirical`. It tests the representational mechanism under an explicit synthetic contract; it does not estimate human attention costs, establish market alpha, or validate Transformer behavior.
 
+## Information abundance and attention diversity
+
+For an uninformed observer sampling `b` features uniformly from `N`, the expected probability of retaining a particular feature is:
+
+`P(random observer retains x) = b/N`.
+
+For `m` independent observers, the probability that at least one retains that feature is:
+
+`P(novel feature preserved) = 1 - (1 - b/N)^m`.
+
+This assumes independent uniform sampling, no replacement within an observer, and a feature not already fixed in a shared filter. It is an analytical expectation for the synthetic contract, not a result about real observers.
+
+Define support-based attention diversity as:
+
+`D_A = |union_i support(A_i)| / sum_i |support(A_i)|`.
+
+With equal per-observer budgets `b`, the denominator is `m*b`. Perfectly homogeneous observers have `D_A = 1/m` when their shared support has size `b`; non-overlapping supports approach `D_A = 1`. The quantity measures non-redundant support, not semantic diversity or intelligence.
+
+The cost-matched C4 comparison holds observer count, per-observer budget, and total attention slots constant. It varies how many observers explore outside the learned expert support. Therefore any difference in shifted-regime coverage is not attributable to gross slot count within this synthetic contract, although the instrument still abstracts away sensing quality and adjudication costs.
+
 ## Claim boundary
 
 Definitions: the optimization, meaning, efficiency, and support quantities above.

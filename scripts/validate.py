@@ -31,6 +31,8 @@ def main() -> int:
     for claim in claims["claims"]:
         for key in ("id", "type", "wording", "evidence_status", "falsifier", "evidence_ceiling"):
             assert claim.get(key), f"{claim['id']} missing {key}"
+        if "evidence_receipt" in claim:
+            assert (ROOT / claim["evidence_receipt"]).is_file(), f"{claim['id']} receipt missing"
         assert set(claim.get("depends_on", [])) <= ids | {d["id"] for d in claims["definitions"]}
     draft = (ROOT / "papers/draft.md").read_text()
     for marker in ("## Abstract", "## 3. Meaning", "## 8. Propositions", "No empirical result"):

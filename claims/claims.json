@@ -8,6 +8,8 @@
       "type": "bounded_hypothesis",
       "wording": "Under fixed processing capacity, increasing irrelevant information eventually reduces decision quality.",
       "evidence_status": "prospective",
+      "instrument_status": "local_verified_synthetic",
+      "evidence_receipt": "artifacts/attention-v1/attention-regime-shift.json",
       "depends_on": ["D1"],
       "falsifier": "Decision quality does not decline across preregistered overload conditions with fixed capacity.",
       "evidence_ceiling": "synthetic_or_future_experiment_only"
@@ -35,6 +37,8 @@
       "type": "bounded_hypothesis",
       "wording": "Heterogeneous attention improves novelty detection under regime change when minority observations survive adjudication.",
       "evidence_status": "prospective",
+      "instrument_status": "local_verified_synthetic",
+      "evidence_receipt": "artifacts/attention-v1/attention-regime-shift.json",
       "depends_on": ["C1", "C3"],
       "falsifier": "Heterogeneous and homogeneous systems are indistinguishable on preregistered novelty detection, or heterogeneity harms without a cost tradeoff.",
       "evidence_ceiling": "synthetic_or_future_experiment_only"
