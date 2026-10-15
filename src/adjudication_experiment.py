@@ -62,12 +62,16 @@ def _mean_metrics(rows: list[dict[str, float | int]]) -> dict[str, float | int]:
     return result
 
 
-def _one_policy(config: AdjudicationConfig, seed: int, explorers: int, policy: str) -> dict[str, float | int]:
+def _one_policy(config: AdjudicationConfig, seed: int, explorers: int, policy: str, adjudication_budget: int | None = None) -> dict[str, float | int]:
     rng = random.Random(seed + explorers * 10007)
     expert = set(config.stable_causal)
-    exploratory_supports = [set(rng.sample(range(config.feature_count), config.observer_budget)) for _ in range(explorers)]
-    candidates = expert | set().union(*exploratory_supports) if exploratory_supports else expert
+    if policy == "homogeneous":
+        candidates = expert
+    else:
+        exploratory_supports = [set(rng.sample(range(config.feature_count), config.observer_budget)) for _ in range(explorers)]
+        candidates = expert | set().union(*exploratory_supports) if exploratory_supports else expert
     causal = set(config.shifted_causal)
+    budget = adjudication_budget if adjudication_budget is not None else config.adjudication_budget
 
     if policy == "homogeneous":
         selected = expert
@@ -83,11 +87,11 @@ def _one_policy(config: AdjudicationConfig, seed: int, explorers: int, policy: s
             score = (1.0 if feature in causal else 0.0) + rng.gauss(0.0, 0.55)
             scored.append((score, feature))
         scored.sort(reverse=True)
-        selected = {feature for _, feature in scored[: config.adjudication_budget]}
-        evaluated = min(len(candidates), config.adjudication_budget)
+        selected = {feature for _, feature in scored[: budget]}
+        evaluated = min(len(candidates), budget)
     elif policy == "oracle":
-        selected = set(sorted(candidates & causal)[: config.adjudication_budget])
-        evaluated = min(len(candidates), config.adjudication_budget)
+        selected = set(sorted(candidates & causal)[: budget])
+        evaluated = min(len(candidates), budget)
     else:
         raise ValueError(f"unknown policy: {policy}")
 
@@ -96,15 +100,19 @@ def _one_policy(config: AdjudicationConfig, seed: int, explorers: int, policy: s
     false_positives = len(selected - causal)
     false_positive_rate = false_positives / len(selected) if selected else 0.0
     coverage = len(selected & causal) / config.causal_width
-    observation_cost = len(candidates) * 0.001
+    sampling_operations = config.total_observers * config.observer_budget
+    observation_cost = sampling_operations * 0.001
     adjudication_cost = evaluated * 0.002
     false_positive_cost = false_positives * 0.003
     net_utility = accuracy - observation_cost - adjudication_cost - false_positive_cost
+    stable_net_utility = stable_accuracy - observation_cost - adjudication_cost - false_positive_cost
     return {
         "accuracy": accuracy,
         "stable_accuracy": stable_accuracy,
+        "stable_net_utility": stable_net_utility,
         "novel_signal_coverage": coverage,
         "candidate_count": len(candidates),
+        "sampling_operations": sampling_operations,
         "evaluated_candidates": evaluated,
         "false_positive_rate": false_positive_rate,
         "adjudication_cost": adjudication_cost,
@@ -127,6 +135,17 @@ def run_adjudication_experiment(config: AdjudicationConfig | None = None) -> dic
             metrics = [_one_policy(config, seed, explorers, policy) for seed in config.seeds]
             row[policy] = _mean_metrics(metrics)
         sweep.append(row)
+    sensitivity = []
+    for budget in (5, 10, 20, 40, 65):
+        for probability in (0.0, 0.25, 0.5, 0.75, 1.0):
+            rows = [_one_policy(config, seed, max(config.exploratory_counts), "diverse_top_j", budget) for seed in config.seeds]
+            sensitivity.append({
+                "adjudication_budget": budget,
+                "regime_change_probability": probability,
+                "expected_accuracy": mean((1 - probability) * row["stable_accuracy"] + probability * row["accuracy"] for row in rows),
+                "expected_net_utility": mean((1 - probability) * row["stable_net_utility"] + probability * row["net_utility"] for row in rows),
+                "false_positive_rate": mean(row["false_positive_rate"] for row in rows),
+            })
     return {
         "schema_version": "1.0",
         "status": "synthetic_fixture_not_empirical",
@@ -151,6 +170,7 @@ def run_adjudication_experiment(config: AdjudicationConfig | None = None) -> dic
             "oracle": "causal candidates retained up to J; upper-bound control",
         },
         "diversity_sweep": sweep,
+        "regime_probability_sweep": sensitivity,
         "interpretation_boundary": "This instrument prices declared observation, adjudication, and false-positive proxies. It is not evidence about human, market, or production-model performance.",
     }
 

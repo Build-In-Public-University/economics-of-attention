@@ -106,6 +106,14 @@ With equal per-observer budgets `b`, the denominator is `m*b`. Perfectly homogen
 
 The cost-matched C4 comparison holds observer count, per-observer budget, and total attention slots constant. It varies how many observers explore outside the learned expert support. Therefore any difference in shifted-regime coverage is not attributable to gross slot count within this synthetic contract, although the instrument still abstracts away sensing quality and adjudication costs.
 
+Experiment 3 separates three quantities that should not be collapsed:
+
+- gross sampling `C_sampling`: total feature observations made, including redundant observations;
+- unique candidate support `|union_i support(A_i)|`: distinct dimensions exposed downstream;
+- adjudication cost `C_adjudication`: work required to evaluate or compress those candidates.
+
+Two networks can spend the same gross attention while exposing very different candidate support. A homogeneous network can spend 105 observation slots on 5 repeated dimensions; a heterogeneous network can spend the same 105 slots on a much broader support. Net value must charge both the upstream sampling and downstream candidate evaluation.
+
 ## Claim boundary
 
 Definitions: the optimization, meaning, efficiency, and support quantities above.

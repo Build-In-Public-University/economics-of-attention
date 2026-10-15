@@ -32,6 +32,19 @@ class AdjudicationExperimentTests(unittest.TestCase):
         rows = result["diversity_sweep"]
         self.assertTrue(any(row["diverse_unfiltered"]["net_utility"] != row["diverse_unfiltered"]["accuracy"] for row in rows))
 
+    def test_homogeneous_control_has_constant_unique_support_but_same_sampling_budget(self):
+        result = run_adjudication_experiment(AdjudicationConfig(seeds=(0, 1), trials=200))
+        for row in result["diversity_sweep"]:
+            homogeneous = row["homogeneous"]
+            self.assertEqual(homogeneous["candidate_count"], 5)
+            self.assertEqual(homogeneous["sampling_operations"], 105)
+
+    def test_sensitivity_sweep_varies_adjudication_budget_and_shift_probability(self):
+        result = run_adjudication_experiment(AdjudicationConfig(seeds=(0, 1), trials=200))
+        self.assertTrue(result["regime_probability_sweep"])
+        self.assertEqual({row["adjudication_budget"] for row in result["regime_probability_sweep"]}, {5, 10, 20, 40, 65})
+        self.assertEqual({row["regime_change_probability"] for row in result["regime_probability_sweep"]}, {0.0, 0.25, 0.5, 0.75, 1.0})
+
 
 if __name__ == "__main__":
     unittest.main()

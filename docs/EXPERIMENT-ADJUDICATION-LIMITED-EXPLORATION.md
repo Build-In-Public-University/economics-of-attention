@@ -46,11 +46,13 @@ The prediction is conditional. If the adjudicator receives free oracle knowledge
 
 With `J=20`, 21 observers, 105 total attention slots, and 20 exploratory observers:
 
-- unfiltered exploration reached shifted-regime accuracy `0.7913` but net utility `0.4022` after declared observation, adjudication, and false-positive costs;
-- noisy top-`J` adjudication reached shifted-regime accuracy `0.7703` and net utility `0.6120`;
-- the oracle upper bound reached accuracy `0.7945` and net utility `0.6880`.
+- unfiltered exploration reached shifted-regime accuracy `0.7913` but net utility `0.3637` after declared sampling, adjudication, and false-positive costs;
+- noisy top-`J` adjudication reached shifted-regime accuracy `0.7703` and net utility `0.5734`;
+- the oracle upper bound reached accuracy `0.7945` and net utility `0.6495`.
 
-The unfiltered policy's candidate count rose from `5.0` with no explorers to `66.45` with 20 explorers, while its net utility fell from `0.4675` to `0.4022`. The top-`J` policy kept evaluated candidates bounded at `J`, but its false-positive rate remained `0.865` at the highest diversity setting. This is an instrument result under the declared proxy costs, not evidence of a universal interior optimum. The cost coefficients and noisy adjudication signal are explicit fixture assumptions, not measured human costs.
+The homogeneous control now has a constant unique candidate count of `5.0` at every diversity level while still charging `105` sampling operations. This separates gross sampling from unique candidate distinctions. The unfiltered policy's candidate count rises from `5.0` to `66.45`; its shifted accuracy rises from `0.4975` to `0.7913`, while net utility falls from `0.3675` to `0.3637`. The top-`J` policy keeps evaluated candidates bounded at `J` and reaches net utility `0.5734` at maximum exploration. These are instrument results under explicit proxy costs, not evidence of human or market behavior.
+
+The new regime-probability and budget sensitivity sweep produces an interior budget at some priors. At regime-change probability `0.5`, expected top-`J` net utility is `0.4882`, `0.5030`, `0.5052`, `0.4859`, and `0.4688` for `J={5,10,20,40,65}` respectively. The optimum is fixture-dependent: at probability `0.0`, larger `J` wins; at probability `1.0`, `J=10` wins. The result supports a conditional exploration/adjudication frontier, not a universal optimum.
 
 ## Evidence boundary
 
