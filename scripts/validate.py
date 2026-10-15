@@ -16,6 +16,7 @@ REQUIRED = [
     ROOT / "docs/FOUNDATIONAL-CITATIONS.md",
     ROOT / "docs/FORMAL-MODEL.md",
     ROOT / "docs/EXPERIMENT-ATTENTION-REGIME-SHIFT.md",
+    ROOT / "docs/EXPERIMENT-ADJUDICATION-LIMITED-EXPLORATION.md",
     ROOT / "src/attention_experiment.py",
     ROOT / "artifacts/attention-v1/attention-regime-shift.json",
 ]

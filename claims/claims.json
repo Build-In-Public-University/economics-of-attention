@@ -6,12 +6,12 @@
     {
       "id": "C1",
       "type": "bounded_hypothesis",
-      "wording": "Under fixed processing capacity, increasing irrelevant information eventually reduces decision quality.",
+      "wording": "Under a fixed attention budget, increasing the number of candidate observations reduces expected retention of consequential features unless attention preferentially allocates toward them.",
       "evidence_status": "prospective",
       "instrument_status": "local_verified_synthetic",
       "evidence_receipt": "artifacts/attention-v1/attention-regime-shift.json",
       "depends_on": ["D1"],
-      "falsifier": "Decision quality does not decline across preregistered overload conditions with fixed capacity.",
+      "falsifier": "Undirected sampling does not show signal dilution as candidate features increase, or a discriminative policy fails to protect consequential-feature retention under the same budget.",
       "evidence_ceiling": "synthetic_or_future_experiment_only"
     },
     {

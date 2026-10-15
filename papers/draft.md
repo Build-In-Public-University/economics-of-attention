@@ -130,7 +130,7 @@ Credentials, titles, metrics, and institutional routines can persist because the
 
 ## 8. Propositions and tests
 
-1. Information abundance: fixed-capacity observers eventually show diminishing or negative marginal decision value from additional irrelevant information.
+1. Information abundance: under a fixed attention budget, increasing the candidate set reduces expected retention of consequential features for undirected sampling, while a discriminative policy can protect retention.
 2. Action-relevant meaning: action-change measures predict consequential behavior better than surprise alone.
 3. Attention efficiency: persistent filters have positive expected action value net of operating cost.
 4. Compression residuals: systems optimized on stable distributions fail more often on causal features outside their retained representation after regime change.
@@ -144,6 +144,8 @@ Each proposition remains prospective until an executable protocol, comparator, o
 ## 9. Implications and limits
 
 The framework suggests that AI scaling will increasingly face an allocation problem: more context without better routing, retrieval, sparsity, specialization, or adaptive memory reproduces the human information-abundance problem inside machine systems. Institutions likewise need forgetting, dissent, anomaly detection, and heterogeneous observation rather than unrestricted measurement alone.
+
+The two synthetic sweeps expose a cycle rather than a one-directional overload law: abundance pressures observers toward compression; compression creates structured blind spots under regime change; non-redundant exploration repairs some blind spots; and the resulting candidate set must eventually be compressed again. The current instrument does not yet price adjudication or false-positive burden, so the exploration–compression frontier remains a prospective extension.
 
 The framework does not establish that more diversity is always better, that all residuals deserve attention, or that a single scalar captures intelligence. The proposed ratio requires compatible units, explicit horizons, and a defined baseline. The model also leaves open how observers learn costs, how utility is measured under conflict, and how adjudication should trade minority preservation against noise.
 
