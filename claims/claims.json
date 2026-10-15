@@ -1,0 +1,76 @@
+{
+  "schema_version": "1.0",
+  "project": "economics-of-attention",
+  "status": "conceptual_draft_no_empirical_results",
+  "claims": [
+    {
+      "id": "C1",
+      "type": "bounded_hypothesis",
+      "wording": "Under fixed processing capacity, increasing irrelevant information eventually reduces decision quality.",
+      "evidence_status": "prospective",
+      "depends_on": ["D1"],
+      "falsifier": "Decision quality does not decline across preregistered overload conditions with fixed capacity.",
+      "evidence_ceiling": "synthetic_or_future_experiment_only"
+    },
+    {
+      "id": "C2",
+      "type": "definition",
+      "wording": "Action-relative meaning is the improvement in optimal expected action value produced by preserving an observation.",
+      "evidence_status": "theory",
+      "depends_on": ["D2"],
+      "falsifier": "Definition is rejected if the operational quantity cannot be assigned a declared action set, utility, and conditioning state.",
+      "evidence_ceiling": "definition_not_empirical"
+    },
+    {
+      "id": "C3",
+      "type": "bounded_hypothesis",
+      "wording": "Attention mechanisms persist when expected action improvement exceeds their declared operating and switching costs.",
+      "evidence_status": "prospective",
+      "depends_on": ["C2", "D3"],
+      "falsifier": "Observed persistence is unrelated to net action value across controlled cost conditions.",
+      "evidence_ceiling": "future_costed_comparison"
+    },
+    {
+      "id": "C4",
+      "type": "bounded_hypothesis",
+      "wording": "Heterogeneous attention improves novelty detection under regime change when minority observations survive adjudication.",
+      "evidence_status": "prospective",
+      "depends_on": ["C1", "C3"],
+      "falsifier": "Heterogeneous and homogeneous systems are indistinguishable on preregistered novelty detection, or heterogeneity harms without a cost tradeoff.",
+      "evidence_ceiling": "synthetic_or_future_experiment_only"
+    },
+    {
+      "id": "C5",
+      "type": "bounded_hypothesis",
+      "wording": "A newly useful market distinction loses private excess value as attention to it diffuses.",
+      "evidence_status": "prospective",
+      "depends_on": ["C2", "C3"],
+      "falsifier": "Excess value does not decay with independently measured diffusion of attention, after costs and selection are controlled.",
+      "evidence_ceiling": "future_market_data_required"
+    },
+    {
+      "id": "C6",
+      "type": "bounded_hypothesis",
+      "wording": "Labels alter feature weighting and valuation by transmitting reusable attention priors.",
+      "evidence_status": "prospective",
+      "depends_on": ["C2"],
+      "falsifier": "Matched label manipulations produce no reliable change in preregistered feature weighting or valuation outcomes.",
+      "evidence_ceiling": "future_behavioral_or_model_experiment"
+    },
+    {
+      "id": "C7",
+      "type": "bounded_hypothesis",
+      "wording": "Historically invested categories update more slowly under contradictory evidence than neutral new categories.",
+      "evidence_status": "prospective",
+      "depends_on": ["C3", "D4"],
+      "falsifier": "Update speed is equal after controlling for baseline familiarity, task difficulty, and evidence strength.",
+      "evidence_ceiling": "future_behavioral_or_institutional_data"
+    }
+  ],
+  "definitions": [
+    {"id": "D1", "name": "finite_observer", "status": "definition"},
+    {"id": "D2", "name": "action_relative_meaning", "status": "definition"},
+    {"id": "D3", "name": "attention_efficiency", "status": "definition"},
+    {"id": "D4", "name": "semantic_hysteresis", "status": "definition"}
+  ]
+}
