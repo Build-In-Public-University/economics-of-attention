@@ -18,7 +18,9 @@ REQUIRED = [
     ROOT / "docs/EXPERIMENT-ATTENTION-REGIME-SHIFT.md",
     ROOT / "docs/EXPERIMENT-ADJUDICATION-LIMITED-EXPLORATION.md",
     ROOT / "src/attention_experiment.py",
+    ROOT / "src/adjudication_experiment.py",
     ROOT / "artifacts/attention-v1/attention-regime-shift.json",
+    ROOT / "artifacts/attention-v2/adjudication-limited-exploration.json",
 ]
 
 def main() -> int:
@@ -43,6 +45,9 @@ def main() -> int:
     receipt = json.loads((ROOT / "artifacts/attention-v1/attention-regime-shift.json").read_text())
     assert receipt["status"] == "synthetic_fixture_not_empirical"
     assert set(receipt["claim_targets"]) == {"C1", "C4"}
+    adjudication = json.loads((ROOT / "artifacts/attention-v2/adjudication-limited-exploration.json").read_text())
+    assert adjudication["status"] == "synthetic_fixture_not_empirical"
+    assert adjudication["config"]["adjudication_budget"] == 20
     print(f"validated {len(claims['claims'])} claims; no empirical results asserted")
     return 0
 

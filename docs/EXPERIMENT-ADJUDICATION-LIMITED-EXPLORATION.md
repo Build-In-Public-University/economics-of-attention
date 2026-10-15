@@ -7,7 +7,7 @@ Experiments 1 and 2 establish two bounded synthetic mechanisms:
 - information abundance dilutes undirected sampling under a fixed budget;
 - non-redundant attention improves shifted-regime coverage when aggregate observer slots are matched.
 
-Experiment 3 tests the missing cost term: exploratory diversity creates candidates that must be adjudicated. It is prospective and has not been run.
+Experiment 3 tests the missing cost term: exploratory diversity creates candidates that must be adjudicated. The first deterministic run is recorded at `artifacts/attention-v2/adjudication-limited-exploration.json`.
 
 ## Contract
 
@@ -41,6 +41,16 @@ At low diversity, blindness dominates. As diversity rises, novel-signal coverage
 `A* = argmax_A [V(A) - C_observation(A) - C_adjudication(A)]`.
 
 The prediction is conditional. If the adjudicator receives free oracle knowledge, or if irrelevant candidates carry no processing or error cost, the frontier cannot be identified by this instrument.
+
+## First synthetic run
+
+With `J=20`, 21 observers, 105 total attention slots, and 20 exploratory observers:
+
+- unfiltered exploration reached shifted-regime accuracy `0.7913` but net utility `0.4022` after declared observation, adjudication, and false-positive costs;
+- noisy top-`J` adjudication reached shifted-regime accuracy `0.7703` and net utility `0.6120`;
+- the oracle upper bound reached accuracy `0.7945` and net utility `0.6880`.
+
+The unfiltered policy's candidate count rose from `5.0` with no explorers to `66.45` with 20 explorers, while its net utility fell from `0.4675` to `0.4022`. The top-`J` policy kept evaluated candidates bounded at `J`, but its false-positive rate remained `0.865` at the highest diversity setting. This is an instrument result under the declared proxy costs, not evidence of a universal interior optimum. The cost coefficients and noisy adjudication signal are explicit fixture assumptions, not measured human costs.
 
 ## Evidence boundary
 

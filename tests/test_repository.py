@@ -30,5 +30,10 @@ class RepositoryInvariants(unittest.TestCase):
         self.assertIn("preferentially allocates", c1["wording"])
         self.assertIn("signal dilution", c1["falsifier"])
 
+    def test_experiment_3_remains_synthetic(self):
+        receipt = json.loads((ROOT / "artifacts/attention-v2/adjudication-limited-exploration.json").read_text())
+        self.assertEqual(receipt["status"], "synthetic_fixture_not_empirical")
+        self.assertEqual(receipt["config"]["adjudication_budget"], 20)
+
 if __name__ == "__main__":
     unittest.main()
