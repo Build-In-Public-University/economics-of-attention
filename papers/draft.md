@@ -147,6 +147,24 @@ The framework suggests that AI scaling will increasingly face an allocation prob
 
 The two synthetic sweeps expose a cycle rather than a one-directional overload law: abundance pressures observers toward compression; compression creates structured blind spots under regime change; non-redundant exploration repairs some blind spots; and the resulting candidate set must eventually be compressed again. Experiment 3 explicitly prices sampling, adjudication, and false-positive proxies. Its corrected regime-risk sweep produces a fixture-dependent exploration–compression frontier, not a universal optimum.
 
+### Synthetic results: exploration as insurance against compression failure
+
+The synthetic instruments separate three mechanisms. First, under a fixed attention budget, abundance dilutes undirected sampling while a learned filter protects known consequential features. Second, the same compression that produces low-cost performance in the stable regime creates blindness when causality shifts. Third, the two-budget Experiment 3 frontier allocates attention differently as the probability of compression failure rises. At low regime risk, the representative optimum is `E=0` with all `J` values co-optimal because only five candidates exist; at `p=0.5`, the highest observed policy is `(E,J)=(10,10)` with expected net utility `0.6393`; at `p=0.75` and `p=1`, it is `(20,10)` with utilities `0.6114` and `0.5856`. The first two low-risk rows are ties, and the receipt uses the smallest-budget tie-break rather than treating `J=5` as uniquely superior.
+
+The paired `J=10` versus `J=20` comparison at maximum exploration and `p=0.5` gives mean difference `0.00125`, standard deviation `0.06113`, a 95% normal-approximation interval `[-0.02554,0.02804]`, and a 10–10 seed-level win split. The point estimate is therefore not a meaningful claim of superiority. The stronger result is the policy transition across environmental risk:
+
+\[
+\text{low regime risk}\rightarrow\text{exploit existing compression}
+\]
+\[
+\text{intermediate risk}\rightarrow\text{partial exploration + bounded adjudication}
+\]
+\[
+\text{high regime risk}\rightarrow\text{broader exploration + bounded adjudication}.
+\]
+
+In this fixture, exploration is insurance against compression failure. Expertise is cheap exploitation of a known regime; exploration pays to preserve access to distinctions the current model suppresses; adjudication prevents that insurance from becoming unbounded noise. This is a synthetic mechanism result, not evidence about human, market, or production-model behavior.
+
 The framework does not establish that more diversity is always better, that all residuals deserve attention, or that a single scalar captures intelligence. The proposed ratio requires compatible units, explicit horizons, and a defined baseline. The model also leaves open how observers learn costs, how utility is measured under conflict, and how adjudication should trade minority preservation against noise.
 
 ## Conclusion

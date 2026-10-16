@@ -60,13 +60,13 @@ The receipt also compares `J=10` and `J=20` on paired seeds at `p=0.5` and maxim
 
 The full synthetic frontier varies both exploratory observers `E={0,1,2,5,10,20}` and adjudication budget `J={5,10,20,40,65}` across the five regime-risk priors. The highest observed `(E,J)` pair by prior is:
 
-- `p=0`: `(0,5)`, expected net utility `0.8850`;
-- `p=0.25`: `(0,5)`, expected net utility `0.7555`;
+- `p=0`: `E=0`, with `J={5,10,20,40,65}` co-optimal at expected net utility `0.8850`;
+- `p=0.25`: `E=0`, with `J={5,10,20,40,65}` co-optimal at expected net utility `0.7555`;
 - `p=0.5`: `(10,10)`, expected net utility `0.6393`;
 - `p=0.75`: `(20,10)`, expected net utility `0.6114`;
 - `p=1`: `(20,10)`, expected net utility `0.5856`.
 
-This is a fixture-dependent result, not a universal policy prescription. Within the instrument, low regime risk favors exploitation with little or no exploration, while higher risk favors broader exploration paired with bounded adjudication. The receipt contains 150 frontier cells and preserves the underlying cost and accuracy metrics separately.
+The receipt declares a smallest-budget tie-break, so its representative rows report `J=5` for the first two priors while preserving the co-optimal set. This is a fixture-dependent result, not a universal policy prescription. Within the instrument, low regime risk favors exploitation with little or no exploration, while higher risk favors broader exploration paired with bounded adjudication. The receipt contains 150 frontier cells and preserves the underlying cost and accuracy metrics separately.
 
 ## Evidence boundary
 

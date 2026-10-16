@@ -203,7 +203,9 @@ def run_adjudication_experiment(config: AdjudicationConfig | None = None) -> dic
     for probability in (0.0, 0.25, 0.5, 0.75, 1.0):
         candidates = [row for row in frontier if row["regime_change_probability"] == probability]
         best = max(candidates, key=lambda row: row["expected_net_utility"])
-        optima.append({"regime_change_probability": probability, "exploratory_observers": best["exploratory_observers"], "adjudication_budget": best["adjudication_budget"], "expected_net_utility": best["expected_net_utility"]})
+        tied = [row for row in candidates if abs(row["expected_net_utility"] - best["expected_net_utility"]) <= 1e-12]
+        chosen = min(tied, key=lambda row: row["adjudication_budget"])
+        optima.append({"regime_change_probability": probability, "exploratory_observers": chosen["exploratory_observers"], "adjudication_budget": chosen["adjudication_budget"], "co_optimal_adjudication_budgets": sorted({row["adjudication_budget"] for row in tied if row["exploratory_observers"] == chosen["exploratory_observers"]}), "tie_break": "smallest adjudication budget", "expected_net_utility": chosen["expected_net_utility"]})
     return {
         "schema_version": "1.0",
         "status": "synthetic_fixture_not_empirical",

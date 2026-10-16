@@ -61,6 +61,8 @@ class AdjudicationExperimentTests(unittest.TestCase):
         frontier = result["attention_frontier"]
         self.assertEqual(len(frontier), 6 * 5 * 5)
         self.assertEqual(len(result["attention_frontier_optima"]), 5)
+        low_risk = next(row for row in result["attention_frontier_optima"] if row["regime_change_probability"] == 0.0)
+        self.assertEqual(low_risk["co_optimal_adjudication_budgets"], [5, 10, 20, 40, 65])
 
 
 if __name__ == "__main__":
