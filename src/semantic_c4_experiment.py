@@ -7,6 +7,7 @@ hashes and raw outputs. Neither adapter is evidence about production AI.
 from __future__ import annotations
 from dataclasses import dataclass
 import argparse, hashlib, json, os, random, re, time, urllib.request
+import subprocess
 
 @dataclass(frozen=True)
 class Config:
@@ -56,6 +57,16 @@ def provider_claims(docs: list[dict], regime: str, model: str, endpoint: str, bu
     return claims, {"model":model,"endpoint":endpoint,"request_hash":digest(prompt),"raw_hash":digest(raw),"latency_seconds":time.time()-started}
 
 
+def codex_claims(docs: list[dict], regime: str, model: str, budget: int) -> tuple[list[dict], dict]:
+    prompt = {"regime": regime, "task": f"Return only a JSON array with at most {budget} concise claims. Each item must have source, claim, topic. Do not exceed the claim budget.", "documents": docs}
+    started = time.time()
+    completed = subprocess.run(["hermes", "chat", "-q", json.dumps(prompt), "--model", model, "--provider", "openai-codex", "--quiet"], capture_output=True, text=True, timeout=120, check=True)
+    raw = completed.stdout
+    match = re.search(r"\[[\s\S]*\]", raw)
+    claims = (json.loads(match.group(0)) if match else [])[:budget]
+    return claims, {"adapter":"hermes_openai_codex","model":model,"provider":"openai-codex","request_hash":digest(prompt),"raw_hash":digest(raw),"latency_seconds":time.time()-started}
+
+
 def adjudicate(claims: list[dict], regime: str, budget: int, stable_docs: list[dict]) -> list[dict]:
     # Ontology-free proxy: claims that introduce more lexical distinctions than
     # the stable summary receive more action-change score. Ground-truth shifted
@@ -80,6 +91,7 @@ def run(adapter: str="local", model: str="gpt-5.6-luna", endpoint: str="https://
             views={"homogeneous":homogeneous_docs,"heterogeneous":scout_docs}
             for policy, docs in views.items():
                 if adapter=="local": claims=local_claims(docs,regime,config.claim_budget); receipt={"adapter":"local"}
+                elif adapter=="codex": claims,receipt=codex_claims(docs,regime,model,config.claim_budget)
                 else: claims,receipt=provider_claims(docs,regime,model,endpoint,config.claim_budget)
                 selected=adjudicate(claims,regime,config.adjudication_budget,STABLE[:config.context_docs])
                 novel=sum(1 for c in selected if str(c.get("source", "")).startswith("r"))
@@ -88,7 +100,7 @@ def run(adapter: str="local", model: str="gpt-5.6-luna", endpoint: str="https://
 
 
 def main()->int:
-    p=argparse.ArgumentParser(); p.add_argument("--output",required=True); p.add_argument("--adapter",choices=("local","provider"),default="local"); p.add_argument("--model",default="gpt-5.6-luna"); p.add_argument("--endpoint",default="https://openrouter.ai/api/v1/chat/completions"); a=p.parse_args()
+    p=argparse.ArgumentParser(); p.add_argument("--output",required=True); p.add_argument("--adapter",choices=("local","provider","codex"),default="local"); p.add_argument("--model",default="gpt-5.6-luna"); p.add_argument("--endpoint",default="https://openrouter.ai/api/v1/chat/completions"); a=p.parse_args()
     result=run(a.adapter,a.model,a.endpoint)
     with open(a.output,"w") as f: json.dump(result,f,indent=2,sort_keys=True); f.write("\n")
     print(a.output); return 0
