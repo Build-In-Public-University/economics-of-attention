@@ -139,7 +139,7 @@ Credentials, titles, metrics, and institutional routines can persist because the
 7. Linguistic attention: labels change feature weighting and valuation for otherwise identical inputs.
 8. Semantic hysteresis: historically established categories update more slowly under contradictory evidence than neutral new categories.
 
-Each proposition remains prospective until an executable protocol, comparator, outcome, and receipt exist. The associated claim ledger records the falsifiers and evidence ceilings.
+Empirical claims remain prospective with respect to external systems. Synthetic receipts establish behavior of the declared instruments only; they do not establish effects in humans, markets, institutions, or production AI systems. The associated claim ledger records the falsifiers and evidence ceilings.
 
 ## 9. Implications and limits
 
