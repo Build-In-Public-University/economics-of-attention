@@ -33,13 +33,13 @@ def digest(value: object) -> str:
     return hashlib.sha256(json.dumps(value, sort_keys=True).encode()).hexdigest()
 
 
-def local_claims(docs: list[dict], regime: str) -> list[dict]:
+def local_claims(docs: list[dict], regime: str, budget: int) -> list[dict]:
     # Deterministic bounded observer: extracts one claim per supplied document.
-    return [{"source": d["id"], "claim": d["text"], "topic": d["topic"], "regime": regime} for d in docs]
+    return [{"source": d["id"], "claim": d["text"], "topic": d["topic"], "regime": regime} for d in docs[:budget]]
 
 
-def provider_claims(docs: list[dict], regime: str, model: str, endpoint: str) -> tuple[list[dict], dict]:
-    prompt = {"regime": regime, "task":"Return JSON array of concise claims, each with source, claim, topic.", "documents":docs}
+def provider_claims(docs: list[dict], regime: str, model: str, endpoint: str, budget: int) -> tuple[list[dict], dict]:
+    prompt = {"regime": regime, "task":f"Return at most {budget} concise claims as JSON, each with source, claim, topic. Do not exceed the claim budget.", "documents":docs}
     body = json.dumps({"model": model, "temperature": 0, "messages":[{"role":"user","content":json.dumps(prompt)}]}).encode()
     request = urllib.request.Request(endpoint, data=body, headers={"Authorization":"Bearer "+os.environ["SEMAX_OPENROUTER_API_KEY"],"Content-Type":"application/json"})
     started = time.time()
@@ -48,18 +48,19 @@ def provider_claims(docs: list[dict], regime: str, model: str, endpoint: str) ->
     payload = json.loads(raw)
     text = payload["choices"][0]["message"]["content"]
     match = re.search(r"\[[\s\S]*\]", text)
-    claims = json.loads(match.group(0)) if match else []
+    claims = (json.loads(match.group(0)) if match else [])[:budget]
     return claims, {"model":model,"endpoint":endpoint,"request_hash":digest(prompt),"raw_hash":digest(raw),"latency_seconds":time.time()-started}
 
 
-def adjudicate(claims: list[dict], regime: str, budget: int) -> list[dict]:
-    # Declared semantic adjudicator: minority residual topics are valuable only
-    # when they contradict the stable summary or introduce a shifted topic.
+def adjudicate(claims: list[dict], regime: str, budget: int, stable_docs: list[dict]) -> list[dict]:
+    # Ontology-free proxy: claims that introduce more lexical distinctions than
+    # the stable summary receive more action-change score. Ground-truth shifted
+    # IDs are used only for evaluation, never for ranking.
+    stable_words = set(re.findall(r"[a-z]+", " ".join(d["text"].lower() for d in stable_docs)))
     scored=[]
     for claim in claims:
-        topic=str(claim.get("topic", ""))
-        score=(2 if topic in {"sensor_drift","bypass_leak","auxiliary_pump"} else 1)
-        if regime=="stable" and topic in {"pressure","maintenance","procedure","output","inventory"}: score+=1
+        words = set(re.findall(r"[a-z]+", str(claim.get("claim", "")).lower()))
+        score = len(words - stable_words)
         scored.append((score, str(claim.get("source","")), claim))
     scored.sort(key=lambda x:(x[0],x[1]), reverse=True)
     return [claim for _,_,claim in scored[:budget]]
@@ -70,14 +71,14 @@ def run(adapter: str="local", model: str="gpt-5.6-luna", endpoint: str="https://
     for seed in config.seeds:
         rng=random.Random(seed)
         for regime, active in (("stable",STABLE),("shifted",STABLE+SHIFTED)):
-            homogeneous_docs=STABLE[:config.context_docs]
-            scout_docs=rng.sample(STABLE+SHIFTED, min(config.context_docs, len(STABLE+SHIFTED)))
-            views={"homogeneous":homogeneous_docs,"heterogeneous":homogeneous_docs+scout_docs}
+            homogeneous_docs=(STABLE[:config.context_docs] * 2)[: config.context_docs * 2]
+            scout_docs=rng.sample(STABLE+SHIFTED, config.context_docs * 2)
+            views={"homogeneous":homogeneous_docs,"heterogeneous":scout_docs}
             for policy, docs in views.items():
-                if adapter=="local": claims=local_claims(docs,regime); receipt={"adapter":"local"}
-                else: claims,receipt=provider_claims(docs,regime,model,endpoint)
-                selected=adjudicate(claims,regime,config.adjudication_budget)
-                novel=sum(1 for c in selected if c.get("topic") in {"sensor_drift","bypass_leak","auxiliary_pump"})
+                if adapter=="local": claims=local_claims(docs,regime,config.claim_budget); receipt={"adapter":"local"}
+                else: claims,receipt=provider_claims(docs,regime,model,endpoint,config.claim_budget)
+                selected=adjudicate(claims,regime,config.adjudication_budget,STABLE[:config.context_docs])
+                novel=sum(1 for c in selected if str(c.get("source", "")).startswith("r"))
                 rows.append({"seed":seed,"regime":regime,"policy":policy,"candidate_count":len(claims),"selected_count":len(selected),"novel_claims":novel,"context_hash":digest(docs),"prompt_receipt":receipt})
     return {"schema_version":"1.0","status":"synthetic_fixture_not_empirical","instrument":"semantic_c4_context_claims","adapter":adapter,"config":config.__dict__,"rows":rows,"interpretation_boundary":"Synthetic document/claim substrate only; not evidence about human or production-model behavior."}
 

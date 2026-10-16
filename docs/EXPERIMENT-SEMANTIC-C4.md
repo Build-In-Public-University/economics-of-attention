@@ -1,14 +1,15 @@
-# v4 semantic C4 substrate-change experiment
+# v4.1 semantic C4 substrate-change experiment
 
 ## Contract
 
-v4 changes the substrate from structured feature coordinates to bounded textual evidence and natural-language claims.
+v4.1 changes the substrate from structured feature coordinates to bounded textual evidence and natural-language claims, while correcting the v4 context and claim-budget confounds.
 
 - Corpus: stable operational documents plus residual documents containing shifted-regime facts.
-- Homogeneous observers: receive the same high-value stable subset.
-- Heterogeneous scouts: receive different bounded document subsets.
+- Context budget: both conditions receive six document slots. Homogeneous observers repeatedly receive three stable documents; heterogeneous scouts receive six sampled slots across stable and residual documents.
+- Heterogeneous scouts: receive different bounded document subsets, not additional total context.
 - Observer output: claims with source, claim text, and topic.
-- Adjudicator: ranks claims and retains at most `J=4` claims.
+- Claim-generation budget: each observer emits at most `B_C=3` claims.
+- Adjudicator: ranks claims by lexical action-change proxy relative to the stable summary, without a hard-coded shifted-topic ontology, and retains at most `B_J=4` claims.
 - Receipts: context hashes, request hashes, output hashes, adapter, model, endpoint, and latency for provider calls.
 
 Two adapters are included:
@@ -16,13 +17,13 @@ Two adapters are included:
 1. `local`: deterministic claim extraction for contract and pipeline verification;
 2. `provider`: OpenAI-compatible semantic generation through a configured endpoint, targeting the requested `gpt-5.6-luna` model. The prior `gpt-4o-mini` receipt is historical and is not the current target.
 
-## Local result
+## v4.1 local result
 
-Across five seeds, homogeneous shifted contexts produced zero novel claims. Heterogeneous shifted contexts exposed four novel claims under the bounded adjudicator. The local adapter is deliberately deterministic and is not a language-model result.
+Across five seeds, both policies generate exactly three claims from equal six-slot context budgets. Homogeneous shifted contexts produced zero novel claims. Heterogeneous shifted contexts exposed seven novel claims under the bounded adjudicator. Residual shifted documents remain available during the stable window as currently irrelevant evidence; therefore heterogeneous stable windows can expose residual claims without implying that the regime has already changed. The local adapter is deliberately deterministic and is not a language-model result.
 
 ## Provider replication status
 
-The prior provider receipt completed with 20 decision windows using `gpt-4o-mini`; it is retained as historical provenance only. The current target is `gpt-5.6-luna`. The configured OpenRouter model catalog does not expose that literal model ID, so no replacement provider receipt is claimed. The local receipt remains runnable; a provider rerun requires an endpoint that actually serves `gpt-5.6-luna`.
+The prior provider receipt completed with 20 decision windows using `gpt-4o-mini`; it is retained as historical provenance only. The current v4.1 target is `gpt-5.6-luna`. The configured OpenRouter model catalog does not expose that literal model ID, so no replacement provider receipt is claimed. The local v4.1 receipt is runnable; a provider rerun requires an endpoint that actually serves `gpt-5.6-luna`.
 
 ## Boundary
 
@@ -31,7 +32,7 @@ The corpus, regime shift, context assignments, claim schema, and adjudication ru
 Run:
 
 ```bash
-python3 -m src.semantic_c4_experiment --adapter local --output artifacts/attention-v4/semantic-c4-local.json
+python3 -m src.semantic_c4_experiment --adapter local --output artifacts/attention-v4/semantic-c4-local-v41.json
 python3 -m src.semantic_c4_experiment --adapter provider --model gpt-5.6-luna --output artifacts/attention-v4/semantic-c4-provider-gpt-5.6-luna.json
 python3 -m unittest tests.test_semantic_c4_experiment -v
 ```
