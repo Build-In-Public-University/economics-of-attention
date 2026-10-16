@@ -12,6 +12,23 @@ The framework treats an observer as a finite system that maps a potentially obse
 
 The paper places this model beside Shannon's semantic-neutral information theory, Hayek's distributed-knowledge price signal, Grossman–Stiglitz's costly-information constraint, and Transformer attention's query-conditioned relational weighting. The claim is structural rather than historical: these systems instantiate related resource-constrained selection problems, not identical mechanisms. The paper develops propositions about information abundance, compression residuals, heterogeneous attention, alpha decay, linguistic priors, and semantic hysteresis, then specifies falsifiable tests. No empirical result is claimed in this draft.
 
+## Reader resolutions: one mechanism at four depths
+
+The paper is designed as a progressive-compression artifact. Each resolution adds detail without changing the causal model:
+
+- **30s:** Abundance expands the candidate set; compression preserves a cheap expert representation but can create a blind spot; heterogeneous exploration exposes residuals; bounded adjudication decides whether discovery is worth its cost; updated expertise recompresses the environment. The thesis is: **adaptive intelligence is efficient preservation of consequential distinctions.**
+- **3m:** In the running synthetic case, a stable environment makes five specialist features sufficient, so homogeneous experts achieve cheap accurate action. The regime then shifts to a feature outside that support. Specialists retain their old compression and miss the shift. Scouts with non-redundant views surface the residual; adjudication pays a bounded candidate cost; the surviving claim updates the retained support.
+- **15m:** The formal model defines attention as a lossy partition and meaning as action-relative value. Experiments v1–v3 vary support diversity, exploration, adjudication, and learned relevance under declared costs. v4.1 changes the substrate to bounded textual contexts and natural-language claims; its GPT-5.6 Luna receipt remains synthetic and has a residual token-cost confound.
+- **Full audit:** The reader can inspect the argument map, source ledger, claim falsifiers, experiment contracts, source code, tests, and JSON receipts. The evidence ceiling remains: simulator -> learned synthetic classifier -> semantic substrate, not production AI or external human, institutional, or market behavior.
+
+The running example is the same object at every resolution:
+
+\[
+\text{environment}\rightarrow\text{expert compression}\rightarrow\text{discarded residual}\rightarrow\text{regime change}\rightarrow\text{scout detection}\rightarrow\text{adjudication}\rightarrow\text{updated expertise}.
+\]
+
+In the synthetic attention fixture, the environment initially makes the stable specialist support consequential. The expert compression discards features outside that support; those features are therefore operationally invisible, not absent. A regime change makes one discarded feature consequential. Homogeneous experts continue to act through the old partition, while heterogeneous scouts preserve non-redundant views that can expose the residual. The adjudicator incurs candidate and false-positive costs and retains only a bounded number of claims or features. If the residual's expected action value exceeds exploration plus adjudication cost, the network updates its support; otherwise it rationally keeps the old compression. This is a mechanism illustration from the declared fixtures, not an empirical case about a real organization.
+
 ## 1. The post-information problem
 
 Let the environment produce potentially observable information:

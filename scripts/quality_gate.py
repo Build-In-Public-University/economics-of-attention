@@ -25,7 +25,7 @@ def main() -> int:
         gate("negative_boundary", all(term in DRAFT for term in ("does not establish", "does not imply", "not evidence")), True, "stronger readings are rejected"),
         gate("falsification", "falsifier" in DRAFT and all(c.get("falsifier") for c in CLAIMS["claims"] if c["type"] != "definition"), True, "claim ledger and draft expose falsifiers"),
         gate("citation_lineage", all(term in DRAFT for term in ("Shannon", "Hayek", "Grossman–Stiglitz")), True, "foundational lineage named; bibliographic verification remains ledger-bound"),
-        gate("concrete_example", False, False, "no single running example is yet carried through every section"),
+        gate("concrete_example", all(term in DRAFT for term in ("running synthetic case", "regime then shifts", "scouts", "adjudication")), False, "single running synthetic case is carried through compression, shift, discovery, and adjudication"),
         gate("faithful_compression", "boxed" in DRAFT and "rightarrow" in DRAFT, False, "equations and transformation chains present"),
         gate("reader_attention_resolutions", all(term in DRAFT for term in ("30s", "3m", "15m", "full audit")), False, "reader-resolution ladder is not yet explicit"),
     ]

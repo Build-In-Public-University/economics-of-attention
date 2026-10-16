@@ -38,7 +38,7 @@ A receipt may support only the level it actually exercised. A provider-backed se
 
 ## Repository enforcement
 
-`scripts/quality_gate.py` performs the mechanical subset of this review. It checks that the draft contains lineage, mechanism, costs, partition, consequences, explicit boundaries, and falsifiers, and that every bounded hypothesis in the claims ledger has a falsifier and evidence ceiling. It deliberately does not pretend to automate scholarly judgment about examples or citation quality.
+`scripts/quality_gate.py` performs the mechanical subset of this review. It checks that the draft contains lineage, mechanism, costs, partition, consequences, explicit boundaries, falsifiers, one running synthetic case, and the four reader resolutions, and that every bounded hypothesis in the claims ledger has a falsifier and evidence ceiling. It deliberately does not pretend to automate scholarly judgment about whether the example is illuminating or whether a citation actually supports an inherited claim.
 
 The report also emits a claim-by-gate matrix for C1–C7. `lineage_presence` means only that a dependency is registered; it is not source support. `source_support` is therefore marked `manual_review` until each inherited claim is checked against the relevant primary source. A `review_required` report is an intentional selection-pressure state: document-level ingredients may pass while individual claims still fail a hard gate.
 

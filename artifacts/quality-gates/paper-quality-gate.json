@@ -62,10 +62,10 @@
       "status": "pass"
     },
     {
-      "evidence": "no single running example is yet carried through every section",
+      "evidence": "single running synthetic case is carried through compression, shift, discovery, and adjudication",
       "gate": "concrete_example",
       "hard": false,
-      "status": "fail"
+      "status": "pass"
     },
     {
       "evidence": "equations and transformation chains present",
