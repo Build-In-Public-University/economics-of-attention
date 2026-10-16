@@ -44,6 +44,7 @@ The hub owns shared vocabulary, evidence conventions, and cross-paper research i
 - `artifacts/attention-v3/` — machine-readable model-level C4 receipt.
 - `artifacts/attention-v4/` — historical OpenRouter receipt plus corrected local and `gpt-5.6-luna` Codex v4.1 receipts.
 - `artifacts/quality-gates/` — mechanical paper quality-gate receipt.
+- `game/attention-game.html` — local-only timed reading game: the paper disappears, then a causal-compression quiz produces a downloadable receipt.
 - `docs/HUB-CONNECTION.md` — explicit relationship to the shared research hub.
 - `scripts/validate.py` — dependency-free structural validator.
 - `tests/test_repository.py` — executable repository invariants.
@@ -55,8 +56,13 @@ python3 scripts/validate.py
 python3 -m unittest discover -s tests -v
 python3 scripts/quality_gate.py
 python3 -m src.attention_experiment --output artifacts/attention-v1/attention-regime-shift.json
+open game/attention-game.html
 ```
 
-A passing validator establishes repository structure and claim metadata only. The quality gate intentionally returns nonzero while its claim matrix has hard failures; the current receipt is `review_required` even though document-level gates pass. It does not establish the theory, empirical predictions, or any causal result.
+A passing validator establishes repository structure and claim metadata only. The quality gate establishes mechanical consistency of the declared draft and claim ledger; it does not establish the theory, empirical predictions, or any causal result.
 
 The current receipt contains an information-abundance sweep and a cost-matched attention-diversity sweep. Both remain synthetic instrument results. C1 and C4 retain `prospective` evidence status; the receipt demonstrates the simulator's behavior, not a human or market effect.
+
+## Attention game
+
+The game is a self-contained local instrument for testing the paper's progressive-compression claim. Select a reading budget, read the bounded paper, then answer thesis/mechanism/economics/boundary/transfer questions after the source disappears. It reports a single-run score and `U(T)/T` efficiency and can export a JSON receipt. These are protocol observations, not evidence about human reader populations; population claims require controlled versions, randomized readers, and preregistered questions.
