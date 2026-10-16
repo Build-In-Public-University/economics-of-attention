@@ -21,7 +21,12 @@ class AttentionGameArtifactTests(unittest.TestCase):
 
     def test_questions_cover_consequential_model_not_trivia(self):
         text = GAME.read_text()
-        for marker in ("Thesis", "Mechanism", "Economic constraint", "Evidence boundary", "Transfer", "U(T)/T"):
+        for marker in ("Thesis", "Mechanism", "Economic constraint", "Evidence boundary", "Transfer", "U(T_R)/T_R"):
+            self.assertIn(marker, text)
+
+    def test_receipt_separates_reading_and_quiz_time(self):
+        text = GAME.read_text()
+        for marker in ("declared_budget_seconds", "actual_reading_seconds", "quiz_response_seconds", "U(T_R)/T_R"):
             self.assertIn(marker, text)
 
 

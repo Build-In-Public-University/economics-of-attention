@@ -25,6 +25,11 @@ class CleanSessionTests(unittest.TestCase):
         self.assertNotIn("fetch(", text)
         self.assertNotIn("https://", text)
 
+    def test_receipt_separates_reading_and_quiz_time(self):
+        text = GAME.read_text()
+        for marker in ("reading_seconds", "quiz_response_seconds", "U(T_R)/T_R"):
+            self.assertIn(marker, text)
+
 
 if __name__ == "__main__":
     unittest.main()
