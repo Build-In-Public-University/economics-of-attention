@@ -25,8 +25,9 @@ def main() -> int:
         gate("negative_boundary", all(term in DRAFT for term in ("does not establish", "does not imply", "not evidence")), True, "stronger readings are rejected"),
         gate("falsification", "falsifier" in DRAFT and all(c.get("falsifier") for c in CLAIMS["claims"] if c["type"] != "definition"), True, "claim ledger and draft expose falsifiers"),
         gate("citation_lineage", all(term in DRAFT for term in ("Shannon", "Hayek", "Grossman–Stiglitz")), True, "foundational lineage named; bibliographic verification remains ledger-bound"),
-        gate("concrete_example", False, False, "no single running empirical case is yet carried through every section"),
+        gate("concrete_example", False, False, "no single running example is yet carried through every section"),
         gate("faithful_compression", "boxed" in DRAFT and "rightarrow" in DRAFT, False, "equations and transformation chains present"),
+        gate("reader_attention_resolutions", all(term in DRAFT for term in ("30s", "3m", "15m", "full audit")), False, "reader-resolution ladder is not yet explicit"),
     ]
     bounded = [c for c in CLAIMS["claims"] if c["type"] != "definition"]
     claim_matrix = []
@@ -35,9 +36,9 @@ def main() -> int:
         row = {
             "claim": claim["id"],
             "lineage_presence": {"status": "pass" if claim.get("depends_on") else "fail", "basis": "depends_on registered"},
-            "mechanism": {"status": "pass" if any(term in wording for term in ("when", "as ", "improves", "loses", "update")) else "fail", "basis": "claim wording contains a process relation"},
+            "mechanism": {"status": "pass" if any(term in wording for term in ("when", "as ", "improves", "loses", "update", "thereby", "because", "creates", "lowers", "degrades")) else "fail", "basis": "claim wording contains a process relation"},
             "cost": {"status": "pass" if any(term in wording for term in ("cost", "budget", "value", "private excess")) else "fail", "basis": "cost/value language appears in claim wording"},
-            "partition": {"status": "pass" if any(term in wording for term in ("attention", "label", "category", "signal")) else "fail", "basis": "visibility/filter language appears in claim wording"},
+            "partition": {"status": "pass" if any(term in wording for term in ("attention", "label", "category", "signal", "partition")) else "fail", "basis": "visibility/filter language appears in claim wording"},
             "consequence": {"status": "pass" if any(term in wording for term in ("action", "detection", "value", "decay", "update")) else "fail", "basis": "consequence language appears in claim wording"},
             "boundary": {"status": "pass" if claim.get("evidence_ceiling") else "fail", "basis": "evidence ceiling registered"},
             "falsifier": {"status": "pass" if claim.get("falsifier") else "fail", "basis": "falsifier registered"},

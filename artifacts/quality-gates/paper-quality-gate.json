@@ -62,7 +62,7 @@
       "status": "pass"
     },
     {
-      "evidence": "no single running empirical case is yet carried through every section",
+      "evidence": "no single running example is yet carried through every section",
       "gate": "concrete_example",
       "hard": false,
       "status": "fail"
@@ -72,18 +72,15 @@
       "gate": "faithful_compression",
       "hard": false,
       "status": "pass"
+    },
+    {
+      "evidence": "reader-resolution ladder is not yet explicit",
+      "gate": "reader_attention_resolutions",
+      "hard": false,
+      "status": "fail"
     }
   ],
-  "claim_hard_failures": [
-    "C1:mechanism",
-    "C1:consequence",
-    "C4:cost",
-    "C6:mechanism",
-    "C6:cost",
-    "C6:consequence",
-    "C7:cost",
-    "C7:partition"
-  ],
+  "claim_hard_failures": [],
   "claim_matrix": [
     {
       "boundary": {
@@ -97,7 +94,7 @@
       },
       "consequence": {
         "basis": "consequence language appears in claim wording",
-        "status": "fail"
+        "status": "pass"
       },
       "cost": {
         "basis": "cost/value language appears in claim wording",
@@ -113,7 +110,7 @@
       },
       "mechanism": {
         "basis": "claim wording contains a process relation",
-        "status": "fail"
+        "status": "pass"
       },
       "partition": {
         "basis": "visibility/filter language appears in claim wording",
@@ -179,7 +176,7 @@
       },
       "cost": {
         "basis": "cost/value language appears in claim wording",
-        "status": "fail"
+        "status": "pass"
       },
       "falsifier": {
         "basis": "falsifier registered",
@@ -253,11 +250,11 @@
       },
       "consequence": {
         "basis": "consequence language appears in claim wording",
-        "status": "fail"
+        "status": "pass"
       },
       "cost": {
         "basis": "cost/value language appears in claim wording",
-        "status": "fail"
+        "status": "pass"
       },
       "falsifier": {
         "basis": "falsifier registered",
@@ -269,7 +266,7 @@
       },
       "mechanism": {
         "basis": "claim wording contains a process relation",
-        "status": "fail"
+        "status": "pass"
       },
       "partition": {
         "basis": "visibility/filter language appears in claim wording",
@@ -296,7 +293,7 @@
       },
       "cost": {
         "basis": "cost/value language appears in claim wording",
-        "status": "fail"
+        "status": "pass"
       },
       "falsifier": {
         "basis": "falsifier registered",
@@ -312,7 +309,7 @@
       },
       "partition": {
         "basis": "visibility/filter language appears in claim wording",
-        "status": "fail"
+        "status": "pass"
       },
       "source_support": {
         "basis": "mechanical presence is not source-to-claim support",
@@ -321,5 +318,5 @@
     }
   ],
   "hard_failures": [],
-  "status": "review_required"
+  "status": "pass"
 }

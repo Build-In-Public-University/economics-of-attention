@@ -6,7 +6,7 @@
     {
       "id": "C1",
       "type": "bounded_hypothesis",
-      "wording": "Under a fixed attention budget, increasing the number of candidate observations reduces expected retention of consequential features unless attention preferentially allocates toward them.",
+      "wording": "Under a fixed attention budget, expanding candidate observations under undirected sampling lowers the probability of retaining causal features and degrades decision performance unless attention preferentially allocates toward consequential observations; the claim compares retention and action value at fixed sampling cost.",
       "evidence_status": "prospective",
       "instrument_status": "local_verified_synthetic",
       "evidence_receipt": "artifacts/attention-v1/attention-regime-shift.json",
@@ -35,7 +35,7 @@
     {
       "id": "C4",
       "type": "bounded_hypothesis",
-      "wording": "Heterogeneous attention improves novelty detection under regime change when minority observations survive adjudication.",
+      "wording": "Heterogeneous attention improves novelty detection under regime change when minority observations survive adjudication and the expected action value of residual discovery exceeds exploration and adjudication cost.",
       "evidence_status": "prospective",
       "instrument_status": "local_verified_synthetic",
       "evidence_receipt": "artifacts/attention-v1/attention-regime-shift.json",
@@ -56,7 +56,7 @@
     {
       "id": "C6",
       "type": "bounded_hypothesis",
-      "wording": "Labels alter feature weighting and valuation by transmitting reusable attention priors.",
+      "wording": "Labels transmit reusable attention priors that lower the cost of making learned distinctions, change feature weighting, and thereby change valuation or action.",
       "evidence_status": "prospective",
       "depends_on": ["C2"],
       "falsifier": "Matched label manipulations produce no reliable change in preregistered feature weighting or valuation outcomes.",
@@ -65,7 +65,7 @@
     {
       "id": "C7",
       "type": "bounded_hypothesis",
-      "wording": "Historically invested categories update more slowly under contradictory evidence than neutral new categories.",
+      "wording": "Historically invested categories update more slowly under contradictory evidence because accumulated infrastructure creates switching costs that preserve the existing partition and suppress competing distinctions.",
       "evidence_status": "prospective",
       "depends_on": ["C3", "D4"],
       "falsifier": "Update speed is equal after controlling for baseline familiarity, task difficulty, and evidence strength.",

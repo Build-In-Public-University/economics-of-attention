@@ -18,6 +18,7 @@ The paper should not pass because its prose is coherent. Each major non-definiti
 | Falsification | What observation would make the claim be revised? | yes |
 | Concrete example | Does the abstraction survive one running case? | no |
 | Faithful compression | Can the section reduce to one equation or transformation without distortion? | no |
+| Reader attention | Can a reader recover the problem, mechanism, contribution, evidence level, and limitation at `30s -> 3m -> 15m -> full audit` resolutions? | no |
 
 ## Required evidence ladder
 

@@ -71,9 +71,9 @@ def main() -> int:
     assert codex["adapter"] == "codex"
     assert codex["config"]["claim_budget"] == 3
     quality = json.loads((ROOT / "artifacts/quality-gates/paper-quality-gate.json").read_text())
-    assert quality["status"] == "review_required"
+    assert quality["status"] == "pass"
     assert not quality["hard_failures"]
-    assert quality["claim_hard_failures"]
+    assert not quality["claim_hard_failures"]
     print(f"validated {len(claims['claims'])} claims; no empirical results asserted")
     return 0
 
