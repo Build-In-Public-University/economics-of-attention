@@ -48,7 +48,7 @@
     "view_budget": 5
   },
   "instrument": "model_c4_constrained_views",
-  "interpretation_boundary": "This is a synthetic model-level mechanism test. It is not evidence about human cognition, markets, or production AI systems.",
+  "interpretation_boundary": "This is a learned synthetic classifier experiment, not a test of LLMs, neural networks, or independently capable AI agents. It is not evidence about human cognition, markets, or production AI systems.",
   "optima": [
     {
       "adjudication_budget": 5,

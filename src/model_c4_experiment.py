@@ -138,7 +138,7 @@ def run_model_c4(config: ModelC4Config | None = None) -> dict:
         "policies": {"homogeneous": "all agents repeatedly inspect the stable specialist support", "heterogeneous": "specialists plus constrained scouts propose features to a bounded correlation adjudicator"},
         "results": rows,
         "optima": optima,
-        "interpretation_boundary": "This is a synthetic model-level mechanism test. It is not evidence about human cognition, markets, or production AI systems.",
+        "interpretation_boundary": "This is a learned synthetic classifier experiment, not a test of LLMs, neural networks, or independently capable AI agents. It is not evidence about human cognition, markets, or production AI systems.",
     }
 
 

@@ -1,8 +1,8 @@
-# Model-level C4 experiment: constrained views and bounded adjudication
+# Learned synthetic classifier experiment: constrained views and bounded adjudication
 
 ## Contract
 
-This instrument tests whether a small model-level network with heterogeneous feature views can adapt to a hidden regime change better than a cost-matched homogeneous specialist network.
+This instrument tests whether a learned synthetic classifier with heterogeneous feature views can adapt to a hidden regime change better than a cost-matched homogeneous specialist classifier.
 
 - Environment: 40 binary features; five stable causal features and five shifted causal features.
 - Agents: 21 total, each with a five-feature view, for 105 gross sampling operations.
@@ -31,7 +31,7 @@ The shifted-regime best heterogeneous cell in this fixture is `E=20, J=5`, with 
 
 ## Evidence boundary
 
-This is a synthetic model-level mechanism test. The agents learn declared feature correlations from calibration examples, but the task, feature views, costs, and regime change are constructed. The receipt does not establish effects in humans, markets, institutions, or production AI systems.
+This is a learned synthetic classifier experiment, not a test of LLMs, neural networks, or independently capable AI agents. The classifiers infer feature relevance from finite calibration examples, but the task, feature views, costs, and regime change are constructed. The receipt does not establish effects in humans, markets, institutions, or production AI systems.
 
 Run:
 
