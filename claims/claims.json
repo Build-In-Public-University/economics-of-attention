@@ -39,7 +39,7 @@
       "evidence_status": "prospective",
       "instrument_status": "local_verified_synthetic",
       "evidence_receipt": "artifacts/attention-v1/attention-regime-shift.json",
-      "supporting_receipts": ["artifacts/attention-v2/adjudication-limited-exploration.json"],
+      "supporting_receipts": ["artifacts/attention-v2/adjudication-limited-exploration.json", "artifacts/attention-v3/model-c4-constrained-views.json"],
       "depends_on": ["C1", "C3"],
       "falsifier": "Heterogeneous and homogeneous systems are indistinguishable on preregistered novelty detection, or heterogeneity harms without a cost tradeoff.",
       "evidence_ceiling": "synthetic_or_future_experiment_only"

@@ -17,10 +17,12 @@ REQUIRED = [
     ROOT / "docs/FORMAL-MODEL.md",
     ROOT / "docs/EXPERIMENT-ATTENTION-REGIME-SHIFT.md",
     ROOT / "docs/EXPERIMENT-ADJUDICATION-LIMITED-EXPLORATION.md",
+    ROOT / "docs/EXPERIMENT-MODEL-C4.md",
     ROOT / "src/attention_experiment.py",
     ROOT / "src/adjudication_experiment.py",
     ROOT / "artifacts/attention-v1/attention-regime-shift.json",
     ROOT / "artifacts/attention-v2/adjudication-limited-exploration.json",
+    ROOT / "artifacts/attention-v3/model-c4-constrained-views.json",
 ]
 
 def main() -> int:
@@ -48,6 +50,9 @@ def main() -> int:
     adjudication = json.loads((ROOT / "artifacts/attention-v2/adjudication-limited-exploration.json").read_text())
     assert adjudication["status"] == "synthetic_fixture_not_empirical"
     assert adjudication["config"]["adjudication_budget"] == 20
+    model_c4 = json.loads((ROOT / "artifacts/attention-v3/model-c4-constrained-views.json").read_text())
+    assert model_c4["status"] == "synthetic_fixture_not_empirical"
+    assert model_c4["config"]["sampling_operations"] == 105
     print(f"validated {len(claims['claims'])} claims; no empirical results asserted")
     return 0
 

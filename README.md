@@ -19,7 +19,7 @@ The hub owns shared vocabulary, evidence conventions, and cross-paper research i
 - Conceptual draft captured from the working synthesis.
 - Formal definitions and falsifiers registered in `claims/claims.json`.
 - No empirical results are claimed.
-- No market, language, human-subject, or model experiment has been run here.
+- No market, language, or human-subject experiment has been run here. A synthetic model-level C4 instrument is now included.
 - Bibliography is intentionally a verification ledger, not invented metadata.
 
 ## Layout
@@ -33,10 +33,12 @@ The hub owns shared vocabulary, evidence conventions, and cross-paper research i
 - `docs/FORMAL-MODEL.md` — standalone mathematical specification and claim boundary.
 - `docs/EXPERIMENT-ATTENTION-REGIME-SHIFT.md` — synthetic experiment contract for C1/C4.
 - `docs/EXPERIMENT-ADJUDICATION-LIMITED-EXPLORATION.md` — completed synthetic Experiment 3 for pricing adjudication and noise.
+- `docs/EXPERIMENT-MODEL-C4.md` — synthetic model-level C4 test with constrained scouts and bounded adjudication.
 - `src/attention_experiment.py` — dependency-free attention/compression instrument.
 - `src/adjudication_experiment.py` — adjudication-limited exploration instrument for Experiment 3.
 - `artifacts/attention-v1/` — machine-readable synthetic receipt.
 - `artifacts/attention-v2/` — machine-readable Experiment 3 receipt.
+- `artifacts/attention-v3/` — machine-readable model-level C4 receipt.
 - `docs/HUB-CONNECTION.md` — explicit relationship to the shared research hub.
 - `scripts/validate.py` — dependency-free structural validator.
 - `tests/test_repository.py` — executable repository invariants.
