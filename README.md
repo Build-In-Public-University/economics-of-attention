@@ -20,7 +20,7 @@ The hub owns shared vocabulary, evidence conventions, and cross-paper research i
 - Formal definitions and falsifiers registered in `claims/claims.json`.
 - No empirical results are claimed.
 - No market, language, or human-subject experiment has been run here. A learned synthetic classifier C4 instrument is now included; no LLM or production-AI experiment has been run.
-- A v4.1 semantic substrate experiment has a deterministic local receipt with equal context and claim budgets; its prior provider receipt is historical. The current provider target is `gpt-5.6-luna`, which is not exposed by the configured OpenRouter model catalog and therefore has not been rerun.
+- A v4.1 semantic substrate experiment has deterministic local and `gpt-5.6-luna` Codex receipts with equal context-slot and claim budgets; token counts are recorded because sampled documents are not token-equal.
 - Bibliography is intentionally a verification ledger, not invented metadata.
 
 ## Layout
@@ -41,7 +41,7 @@ The hub owns shared vocabulary, evidence conventions, and cross-paper research i
 - `artifacts/attention-v1/` — machine-readable synthetic receipt.
 - `artifacts/attention-v2/` — machine-readable Experiment 3 receipt.
 - `artifacts/attention-v3/` — machine-readable model-level C4 receipt.
-- `artifacts/attention-v4/` — historical provider v4 receipt and corrected local v4.1 receipt.
+- `artifacts/attention-v4/` — historical OpenRouter receipt plus corrected local and `gpt-5.6-luna` Codex v4.1 receipts.
 - `docs/HUB-CONNECTION.md` — explicit relationship to the shared research hub.
 - `scripts/validate.py` — dependency-free structural validator.
 - `tests/test_repository.py` — executable repository invariants.

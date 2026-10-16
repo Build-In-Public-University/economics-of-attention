@@ -26,6 +26,7 @@ REQUIRED = [
     ROOT / "artifacts/attention-v3/model-c4-constrained-views.json",
     ROOT / "artifacts/attention-v4/semantic-c4-local.json",
     ROOT / "artifacts/attention-v4/semantic-c4-local-v41.json",
+    ROOT / "artifacts/attention-v4/semantic-c4-codex-v41.json",
     ROOT / "artifacts/attention-v4/semantic-c4-provider.json",
 ]
 
@@ -64,6 +65,9 @@ def main() -> int:
     v41 = json.loads((ROOT / "artifacts/attention-v4/semantic-c4-local-v41.json").read_text())
     assert v41["config"]["claim_budget"] == 3
     assert all(row["candidate_count"] <= 3 for row in v41["rows"])
+    codex = json.loads((ROOT / "artifacts/attention-v4/semantic-c4-codex-v41.json").read_text())
+    assert codex["adapter"] == "codex"
+    assert codex["config"]["claim_budget"] == 3
     print(f"validated {len(claims['claims'])} claims; no empirical results asserted")
     return 0
 
