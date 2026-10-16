@@ -18,11 +18,14 @@ REQUIRED = [
     ROOT / "docs/EXPERIMENT-ATTENTION-REGIME-SHIFT.md",
     ROOT / "docs/EXPERIMENT-ADJUDICATION-LIMITED-EXPLORATION.md",
     ROOT / "docs/EXPERIMENT-MODEL-C4.md",
+    ROOT / "docs/EXPERIMENT-SEMANTIC-C4.md",
     ROOT / "src/attention_experiment.py",
     ROOT / "src/adjudication_experiment.py",
     ROOT / "artifacts/attention-v1/attention-regime-shift.json",
     ROOT / "artifacts/attention-v2/adjudication-limited-exploration.json",
     ROOT / "artifacts/attention-v3/model-c4-constrained-views.json",
+    ROOT / "artifacts/attention-v4/semantic-c4-local.json",
+    ROOT / "artifacts/attention-v4/semantic-c4-provider.json",
 ]
 
 def main() -> int:
@@ -53,6 +56,10 @@ def main() -> int:
     model_c4 = json.loads((ROOT / "artifacts/attention-v3/model-c4-constrained-views.json").read_text())
     assert model_c4["status"] == "synthetic_fixture_not_empirical"
     assert model_c4["config"]["sampling_operations"] == 105
+    for adapter in ("local", "provider"):
+        semantic = json.loads((ROOT / f"artifacts/attention-v4/semantic-c4-{adapter}.json").read_text())
+        assert semantic["status"] == "synthetic_fixture_not_empirical"
+        assert semantic["adapter"] == adapter
     print(f"validated {len(claims['claims'])} claims; no empirical results asserted")
     return 0
 
