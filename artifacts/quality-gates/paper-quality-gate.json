@@ -1,5 +1,5 @@
 {
-  "boundary": "Mechanical gate only; passing does not establish scholarly correctness.",
+  "boundary": "Mechanical gate only; passing does not establish scholarly correctness. Source support remains manual.",
   "checks": [
     {
       "evidence": "found named inherited frameworks",
@@ -74,6 +74,252 @@
       "status": "pass"
     }
   ],
+  "claim_hard_failures": [
+    "C1:mechanism",
+    "C1:consequence",
+    "C4:cost",
+    "C6:mechanism",
+    "C6:cost",
+    "C6:consequence",
+    "C7:cost",
+    "C7:partition"
+  ],
+  "claim_matrix": [
+    {
+      "boundary": {
+        "basis": "evidence ceiling registered",
+        "status": "pass"
+      },
+      "claim": "C1",
+      "concrete_example": {
+        "basis": "no running example is mapped claim-by-claim yet",
+        "status": "fail"
+      },
+      "consequence": {
+        "basis": "consequence language appears in claim wording",
+        "status": "fail"
+      },
+      "cost": {
+        "basis": "cost/value language appears in claim wording",
+        "status": "pass"
+      },
+      "falsifier": {
+        "basis": "falsifier registered",
+        "status": "pass"
+      },
+      "lineage_presence": {
+        "basis": "depends_on registered",
+        "status": "pass"
+      },
+      "mechanism": {
+        "basis": "claim wording contains a process relation",
+        "status": "fail"
+      },
+      "partition": {
+        "basis": "visibility/filter language appears in claim wording",
+        "status": "pass"
+      },
+      "source_support": {
+        "basis": "mechanical presence is not source-to-claim support",
+        "status": "manual_review"
+      }
+    },
+    {
+      "boundary": {
+        "basis": "evidence ceiling registered",
+        "status": "pass"
+      },
+      "claim": "C3",
+      "concrete_example": {
+        "basis": "no running example is mapped claim-by-claim yet",
+        "status": "fail"
+      },
+      "consequence": {
+        "basis": "consequence language appears in claim wording",
+        "status": "pass"
+      },
+      "cost": {
+        "basis": "cost/value language appears in claim wording",
+        "status": "pass"
+      },
+      "falsifier": {
+        "basis": "falsifier registered",
+        "status": "pass"
+      },
+      "lineage_presence": {
+        "basis": "depends_on registered",
+        "status": "pass"
+      },
+      "mechanism": {
+        "basis": "claim wording contains a process relation",
+        "status": "pass"
+      },
+      "partition": {
+        "basis": "visibility/filter language appears in claim wording",
+        "status": "pass"
+      },
+      "source_support": {
+        "basis": "mechanical presence is not source-to-claim support",
+        "status": "manual_review"
+      }
+    },
+    {
+      "boundary": {
+        "basis": "evidence ceiling registered",
+        "status": "pass"
+      },
+      "claim": "C4",
+      "concrete_example": {
+        "basis": "no running example is mapped claim-by-claim yet",
+        "status": "fail"
+      },
+      "consequence": {
+        "basis": "consequence language appears in claim wording",
+        "status": "pass"
+      },
+      "cost": {
+        "basis": "cost/value language appears in claim wording",
+        "status": "fail"
+      },
+      "falsifier": {
+        "basis": "falsifier registered",
+        "status": "pass"
+      },
+      "lineage_presence": {
+        "basis": "depends_on registered",
+        "status": "pass"
+      },
+      "mechanism": {
+        "basis": "claim wording contains a process relation",
+        "status": "pass"
+      },
+      "partition": {
+        "basis": "visibility/filter language appears in claim wording",
+        "status": "pass"
+      },
+      "source_support": {
+        "basis": "mechanical presence is not source-to-claim support",
+        "status": "manual_review"
+      }
+    },
+    {
+      "boundary": {
+        "basis": "evidence ceiling registered",
+        "status": "pass"
+      },
+      "claim": "C5",
+      "concrete_example": {
+        "basis": "no running example is mapped claim-by-claim yet",
+        "status": "fail"
+      },
+      "consequence": {
+        "basis": "consequence language appears in claim wording",
+        "status": "pass"
+      },
+      "cost": {
+        "basis": "cost/value language appears in claim wording",
+        "status": "pass"
+      },
+      "falsifier": {
+        "basis": "falsifier registered",
+        "status": "pass"
+      },
+      "lineage_presence": {
+        "basis": "depends_on registered",
+        "status": "pass"
+      },
+      "mechanism": {
+        "basis": "claim wording contains a process relation",
+        "status": "pass"
+      },
+      "partition": {
+        "basis": "visibility/filter language appears in claim wording",
+        "status": "pass"
+      },
+      "source_support": {
+        "basis": "mechanical presence is not source-to-claim support",
+        "status": "manual_review"
+      }
+    },
+    {
+      "boundary": {
+        "basis": "evidence ceiling registered",
+        "status": "pass"
+      },
+      "claim": "C6",
+      "concrete_example": {
+        "basis": "no running example is mapped claim-by-claim yet",
+        "status": "fail"
+      },
+      "consequence": {
+        "basis": "consequence language appears in claim wording",
+        "status": "fail"
+      },
+      "cost": {
+        "basis": "cost/value language appears in claim wording",
+        "status": "fail"
+      },
+      "falsifier": {
+        "basis": "falsifier registered",
+        "status": "pass"
+      },
+      "lineage_presence": {
+        "basis": "depends_on registered",
+        "status": "pass"
+      },
+      "mechanism": {
+        "basis": "claim wording contains a process relation",
+        "status": "fail"
+      },
+      "partition": {
+        "basis": "visibility/filter language appears in claim wording",
+        "status": "pass"
+      },
+      "source_support": {
+        "basis": "mechanical presence is not source-to-claim support",
+        "status": "manual_review"
+      }
+    },
+    {
+      "boundary": {
+        "basis": "evidence ceiling registered",
+        "status": "pass"
+      },
+      "claim": "C7",
+      "concrete_example": {
+        "basis": "no running example is mapped claim-by-claim yet",
+        "status": "fail"
+      },
+      "consequence": {
+        "basis": "consequence language appears in claim wording",
+        "status": "pass"
+      },
+      "cost": {
+        "basis": "cost/value language appears in claim wording",
+        "status": "fail"
+      },
+      "falsifier": {
+        "basis": "falsifier registered",
+        "status": "pass"
+      },
+      "lineage_presence": {
+        "basis": "depends_on registered",
+        "status": "pass"
+      },
+      "mechanism": {
+        "basis": "claim wording contains a process relation",
+        "status": "pass"
+      },
+      "partition": {
+        "basis": "visibility/filter language appears in claim wording",
+        "status": "fail"
+      },
+      "source_support": {
+        "basis": "mechanical presence is not source-to-claim support",
+        "status": "manual_review"
+      }
+    }
+  ],
   "hard_failures": [],
-  "status": "pass"
+  "status": "review_required"
 }

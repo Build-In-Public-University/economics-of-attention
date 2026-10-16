@@ -57,6 +57,6 @@ python3 scripts/quality_gate.py
 python3 -m src.attention_experiment --output artifacts/attention-v1/attention-regime-shift.json
 ```
 
-A passing validator establishes repository structure and claim metadata only. It does not establish the theory, empirical predictions, or any causal result. The machine is a ledger with opinions about attention; reality still gets the final vote.
+A passing validator establishes repository structure and claim metadata only. The quality gate intentionally returns nonzero while its claim matrix has hard failures; the current receipt is `review_required` even though document-level gates pass. It does not establish the theory, empirical predictions, or any causal result.
 
 The current receipt contains an information-abundance sweep and a cost-matched attention-diversity sweep. Both remain synthetic instrument results. C1 and C4 retain `prospective` evidence status; the receipt demonstrates the simulator's behavior, not a human or market effect.
