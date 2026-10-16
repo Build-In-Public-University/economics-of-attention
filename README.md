@@ -36,12 +36,14 @@ The hub owns shared vocabulary, evidence conventions, and cross-paper research i
 - `docs/EXPERIMENT-ADJUDICATION-LIMITED-EXPLORATION.md` — completed synthetic Experiment 3 for pricing adjudication and noise.
 - `docs/EXPERIMENT-MODEL-C4.md` — learned synthetic classifier C4 test with constrained scouts and bounded adjudication.
 - `docs/EXPERIMENT-SEMANTIC-C4.md` — v4 textual-context, claim, and bounded-adjudication experiment.
+- `docs/PAPER-QUALITY-GATES.md` — Steph-derived scholarly selection-pressure rubric.
 - `src/attention_experiment.py` — dependency-free attention/compression instrument.
 - `src/adjudication_experiment.py` — adjudication-limited exploration instrument for Experiment 3.
 - `artifacts/attention-v1/` — machine-readable synthetic receipt.
 - `artifacts/attention-v2/` — machine-readable Experiment 3 receipt.
 - `artifacts/attention-v3/` — machine-readable model-level C4 receipt.
 - `artifacts/attention-v4/` — historical OpenRouter receipt plus corrected local and `gpt-5.6-luna` Codex v4.1 receipts.
+- `artifacts/quality-gates/` — mechanical paper quality-gate receipt.
 - `docs/HUB-CONNECTION.md` — explicit relationship to the shared research hub.
 - `scripts/validate.py` — dependency-free structural validator.
 - `tests/test_repository.py` — executable repository invariants.
@@ -51,6 +53,7 @@ The hub owns shared vocabulary, evidence conventions, and cross-paper research i
 ```bash
 python3 scripts/validate.py
 python3 -m unittest discover -s tests -v
+python3 scripts/quality_gate.py
 python3 -m src.attention_experiment --output artifacts/attention-v1/attention-regime-shift.json
 ```
 

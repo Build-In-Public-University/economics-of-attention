@@ -1,0 +1,79 @@
+{
+  "boundary": "Mechanical gate only; passing does not establish scholarly correctness.",
+  "checks": [
+    {
+      "evidence": "found named inherited frameworks",
+      "gate": "lineage",
+      "hard": true,
+      "status": "pass"
+    },
+    {
+      "evidence": "control loop and action pathway present",
+      "gate": "mechanism",
+      "hard": true,
+      "status": "pass"
+    },
+    {
+      "evidence": "operating and downstream costs named",
+      "gate": "cost",
+      "hard": true,
+      "status": "pass"
+    },
+    {
+      "evidence": "visibility and retained support are explicit",
+      "gate": "partition",
+      "hard": true,
+      "status": "pass"
+    },
+    {
+      "evidence": "loss and regime-dependent blindness are explicit",
+      "gate": "compression",
+      "hard": true,
+      "status": "pass"
+    },
+    {
+      "evidence": "meaning is tied to action value",
+      "gate": "consequence",
+      "hard": true,
+      "status": "pass"
+    },
+    {
+      "evidence": "synthetic-to-external boundary is stated",
+      "gate": "evidence_level",
+      "hard": true,
+      "status": "pass"
+    },
+    {
+      "evidence": "stronger readings are rejected",
+      "gate": "negative_boundary",
+      "hard": true,
+      "status": "pass"
+    },
+    {
+      "evidence": "claim ledger and draft expose falsifiers",
+      "gate": "falsification",
+      "hard": true,
+      "status": "pass"
+    },
+    {
+      "evidence": "foundational lineage named; bibliographic verification remains ledger-bound",
+      "gate": "citation_lineage",
+      "hard": true,
+      "status": "pass"
+    },
+    {
+      "evidence": "no single running empirical case is yet carried through every section",
+      "gate": "concrete_example",
+      "hard": false,
+      "status": "fail"
+    },
+    {
+      "evidence": "equations and transformation chains present",
+      "gate": "faithful_compression",
+      "hard": false,
+      "status": "pass"
+    }
+  ],
+  "hard_failures": [],
+  "status": "pass"
+}

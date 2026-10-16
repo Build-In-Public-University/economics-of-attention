@@ -40,6 +40,8 @@ Y_{i,t}=A_{i,t}(X_t\mid q_{i,t},w_{i,t}), \qquad Z_{i,t}=\phi_i(Y_{i,t}).
 
 The representation \(Z\) is smaller than the environment and therefore lossy. There may be distinct states \(S_1\neq S_2\) for which \(Z(S_1)=Z(S_2)\), even though the distinction later changes action value. Compression is therefore both the source of efficiency and the source of model blindness.
 
+The attention policy creates a partition of reality: its support is what the observer can distinguish in the current decision window, while variables outside that support are operationally invisible. Every compression step discards distinctions, even when it does not delete the underlying data. A discarded distinction becomes consequential when a regime change moves it across the action boundary. The relevant review question is therefore not only “how much information is available?” but “which distinctions can this observer literally see, which are suppressed, and what would make a suppressed distinction matter?”
+
 The observer acts through:
 
 \[

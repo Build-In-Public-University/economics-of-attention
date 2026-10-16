@@ -19,6 +19,7 @@ REQUIRED = [
     ROOT / "docs/EXPERIMENT-ADJUDICATION-LIMITED-EXPLORATION.md",
     ROOT / "docs/EXPERIMENT-MODEL-C4.md",
     ROOT / "docs/EXPERIMENT-SEMANTIC-C4.md",
+    ROOT / "docs/PAPER-QUALITY-GATES.md",
     ROOT / "src/attention_experiment.py",
     ROOT / "src/adjudication_experiment.py",
     ROOT / "artifacts/attention-v1/attention-regime-shift.json",
@@ -28,6 +29,7 @@ REQUIRED = [
     ROOT / "artifacts/attention-v4/semantic-c4-local-v41.json",
     ROOT / "artifacts/attention-v4/semantic-c4-codex-v41.json",
     ROOT / "artifacts/attention-v4/semantic-c4-provider.json",
+    ROOT / "artifacts/quality-gates/paper-quality-gate.json",
 ]
 
 def main() -> int:
@@ -68,6 +70,9 @@ def main() -> int:
     codex = json.loads((ROOT / "artifacts/attention-v4/semantic-c4-codex-v41.json").read_text())
     assert codex["adapter"] == "codex"
     assert codex["config"]["claim_budget"] == 3
+    quality = json.loads((ROOT / "artifacts/quality-gates/paper-quality-gate.json").read_text())
+    assert quality["status"] == "pass"
+    assert not quality["hard_failures"]
     print(f"validated {len(claims['claims'])} claims; no empirical results asserted")
     return 0
 
