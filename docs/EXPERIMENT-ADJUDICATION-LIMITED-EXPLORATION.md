@@ -54,6 +54,20 @@ The homogeneous control now has a constant unique candidate count of `5.0` at ev
 
 The corrected regime-probability and budget sensitivity sweep scores each candidate against the active causal regime before mixing outcomes. At regime-change probability `0.5`, expected top-`J` net utility is `0.6016`, `0.6373`, `0.6385`, `0.5951`, and `0.4811` for `J={5,10,20,40,65}` respectively. The optimum is fixture-dependent: at probability `0.0`, `J=20` wins narrowly; at probability `1.0`, `J=10` wins. The result supports a conditional exploration/adjudication frontier, not a universal optimum.
 
+## Uncertainty and two-budget frontier
+
+The receipt also compares `J=10` and `J=20` on paired seeds at `p=0.5` and maximum exploration. The mean difference `U(J=20)-U(J=10)` is `0.00125`, with standard deviation `0.06113`, a normal-approximation 95% interval of `[-0.02554, 0.02804]`, and a `10`–`10` split in seed-level wins. Therefore `J=20` is the highest observed mean in this comparison, not a statistically established optimum.
+
+The full synthetic frontier varies both exploratory observers `E={0,1,2,5,10,20}` and adjudication budget `J={5,10,20,40,65}` across the five regime-risk priors. The highest observed `(E,J)` pair by prior is:
+
+- `p=0`: `(0,5)`, expected net utility `0.8850`;
+- `p=0.25`: `(0,5)`, expected net utility `0.7555`;
+- `p=0.5`: `(10,10)`, expected net utility `0.6393`;
+- `p=0.75`: `(20,10)`, expected net utility `0.6114`;
+- `p=1`: `(20,10)`, expected net utility `0.5856`.
+
+This is a fixture-dependent result, not a universal policy prescription. Within the instrument, low regime risk favors exploitation with little or no exploration, while higher risk favors broader exploration paired with bounded adjudication. The receipt contains 150 frontier cells and preserves the underlying cost and accuracy metrics separately.
+
 ## Evidence boundary
 
 The completed receipt validates simulator behavior under the declared adjudication contract. It cannot establish human, institutional, market, or production-model effects without separate evidence.

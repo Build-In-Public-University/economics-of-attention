@@ -1,4 +1,1088 @@
 {
+  "attention_frontier": [
+    {
+      "adjudication_budget": 5,
+      "expected_accuracy": 1.0,
+      "expected_net_utility": 0.885,
+      "exploratory_observers": 0,
+      "regime_change_probability": 0.0
+    },
+    {
+      "adjudication_budget": 5,
+      "expected_accuracy": 0.8742375,
+      "expected_net_utility": 0.7554875000000001,
+      "exploratory_observers": 0,
+      "regime_change_probability": 0.25
+    },
+    {
+      "adjudication_budget": 5,
+      "expected_accuracy": 0.748475,
+      "expected_net_utility": 0.625975,
+      "exploratory_observers": 0,
+      "regime_change_probability": 0.5
+    },
+    {
+      "adjudication_budget": 5,
+      "expected_accuracy": 0.6227125,
+      "expected_net_utility": 0.4964625,
+      "exploratory_observers": 0,
+      "regime_change_probability": 0.75
+    },
+    {
+      "adjudication_budget": 5,
+      "expected_accuracy": 0.49695,
+      "expected_net_utility": 0.36695,
+      "exploratory_observers": 0,
+      "regime_change_probability": 1.0
+    },
+    {
+      "adjudication_budget": 10,
+      "expected_accuracy": 1.0,
+      "expected_net_utility": 0.885,
+      "exploratory_observers": 0,
+      "regime_change_probability": 0.0
+    },
+    {
+      "adjudication_budget": 10,
+      "expected_accuracy": 0.8742375,
+      "expected_net_utility": 0.7554875000000001,
+      "exploratory_observers": 0,
+      "regime_change_probability": 0.25
+    },
+    {
+      "adjudication_budget": 10,
+      "expected_accuracy": 0.748475,
+      "expected_net_utility": 0.625975,
+      "exploratory_observers": 0,
+      "regime_change_probability": 0.5
+    },
+    {
+      "adjudication_budget": 10,
+      "expected_accuracy": 0.6227125,
+      "expected_net_utility": 0.4964625,
+      "exploratory_observers": 0,
+      "regime_change_probability": 0.75
+    },
+    {
+      "adjudication_budget": 10,
+      "expected_accuracy": 0.49695,
+      "expected_net_utility": 0.36695,
+      "exploratory_observers": 0,
+      "regime_change_probability": 1.0
+    },
+    {
+      "adjudication_budget": 20,
+      "expected_accuracy": 1.0,
+      "expected_net_utility": 0.885,
+      "exploratory_observers": 0,
+      "regime_change_probability": 0.0
+    },
+    {
+      "adjudication_budget": 20,
+      "expected_accuracy": 0.8742375,
+      "expected_net_utility": 0.7554875000000001,
+      "exploratory_observers": 0,
+      "regime_change_probability": 0.25
+    },
+    {
+      "adjudication_budget": 20,
+      "expected_accuracy": 0.748475,
+      "expected_net_utility": 0.625975,
+      "exploratory_observers": 0,
+      "regime_change_probability": 0.5
+    },
+    {
+      "adjudication_budget": 20,
+      "expected_accuracy": 0.6227125,
+      "expected_net_utility": 0.4964625,
+      "exploratory_observers": 0,
+      "regime_change_probability": 0.75
+    },
+    {
+      "adjudication_budget": 20,
+      "expected_accuracy": 0.49695,
+      "expected_net_utility": 0.36695,
+      "exploratory_observers": 0,
+      "regime_change_probability": 1.0
+    },
+    {
+      "adjudication_budget": 40,
+      "expected_accuracy": 1.0,
+      "expected_net_utility": 0.885,
+      "exploratory_observers": 0,
+      "regime_change_probability": 0.0
+    },
+    {
+      "adjudication_budget": 40,
+      "expected_accuracy": 0.8742375,
+      "expected_net_utility": 0.7554875000000001,
+      "exploratory_observers": 0,
+      "regime_change_probability": 0.25
+    },
+    {
+      "adjudication_budget": 40,
+      "expected_accuracy": 0.748475,
+      "expected_net_utility": 0.625975,
+      "exploratory_observers": 0,
+      "regime_change_probability": 0.5
+    },
+    {
+      "adjudication_budget": 40,
+      "expected_accuracy": 0.6227125,
+      "expected_net_utility": 0.4964625,
+      "exploratory_observers": 0,
+      "regime_change_probability": 0.75
+    },
+    {
+      "adjudication_budget": 40,
+      "expected_accuracy": 0.49695,
+      "expected_net_utility": 0.36695,
+      "exploratory_observers": 0,
+      "regime_change_probability": 1.0
+    },
+    {
+      "adjudication_budget": 65,
+      "expected_accuracy": 1.0,
+      "expected_net_utility": 0.885,
+      "exploratory_observers": 0,
+      "regime_change_probability": 0.0
+    },
+    {
+      "adjudication_budget": 65,
+      "expected_accuracy": 0.8742375,
+      "expected_net_utility": 0.7554875000000001,
+      "exploratory_observers": 0,
+      "regime_change_probability": 0.25
+    },
+    {
+      "adjudication_budget": 65,
+      "expected_accuracy": 0.748475,
+      "expected_net_utility": 0.625975,
+      "exploratory_observers": 0,
+      "regime_change_probability": 0.5
+    },
+    {
+      "adjudication_budget": 65,
+      "expected_accuracy": 0.6227125,
+      "expected_net_utility": 0.4964625,
+      "exploratory_observers": 0,
+      "regime_change_probability": 0.75
+    },
+    {
+      "adjudication_budget": 65,
+      "expected_accuracy": 0.49695,
+      "expected_net_utility": 0.36695,
+      "exploratory_observers": 0,
+      "regime_change_probability": 1.0
+    },
+    {
+      "adjudication_budget": 5,
+      "expected_accuracy": 0.8901249999999999,
+      "expected_net_utility": 0.773175,
+      "exploratory_observers": 1,
+      "regime_change_probability": 0.0
+    },
+    {
+      "adjudication_budget": 5,
+      "expected_accuracy": 0.80020625,
+      "expected_net_utility": 0.68010625,
+      "exploratory_observers": 1,
+      "regime_change_probability": 0.25
+    },
+    {
+      "adjudication_budget": 5,
+      "expected_accuracy": 0.7102875,
+      "expected_net_utility": 0.5870375,
+      "exploratory_observers": 1,
+      "regime_change_probability": 0.5
+    },
+    {
+      "adjudication_budget": 5,
+      "expected_accuracy": 0.6203687499999999,
+      "expected_net_utility": 0.49396874999999996,
+      "exploratory_observers": 1,
+      "regime_change_probability": 0.75
+    },
+    {
+      "adjudication_budget": 5,
+      "expected_accuracy": 0.53045,
+      "expected_net_utility": 0.4009,
+      "exploratory_observers": 1,
+      "regime_change_probability": 1.0
+    },
+    {
+      "adjudication_budget": 10,
+      "expected_accuracy": 1.0,
+      "expected_net_utility": 0.86075,
+      "exploratory_observers": 1,
+      "regime_change_probability": 0.0
+    },
+    {
+      "adjudication_budget": 10,
+      "expected_accuracy": 0.8826125,
+      "expected_net_utility": 0.739725,
+      "exploratory_observers": 1,
+      "regime_change_probability": 0.25
+    },
+    {
+      "adjudication_budget": 10,
+      "expected_accuracy": 0.765225,
+      "expected_net_utility": 0.6187,
+      "exploratory_observers": 1,
+      "regime_change_probability": 0.5
+    },
+    {
+      "adjudication_budget": 10,
+      "expected_accuracy": 0.6478375,
+      "expected_net_utility": 0.497675,
+      "exploratory_observers": 1,
+      "regime_change_probability": 0.75
+    },
+    {
+      "adjudication_budget": 10,
+      "expected_accuracy": 0.53045,
+      "expected_net_utility": 0.37665,
+      "exploratory_observers": 1,
+      "regime_change_probability": 1.0
+    },
+    {
+      "adjudication_budget": 20,
+      "expected_accuracy": 1.0,
+      "expected_net_utility": 0.86075,
+      "exploratory_observers": 1,
+      "regime_change_probability": 0.0
+    },
+    {
+      "adjudication_budget": 20,
+      "expected_accuracy": 0.8826125,
+      "expected_net_utility": 0.739725,
+      "exploratory_observers": 1,
+      "regime_change_probability": 0.25
+    },
+    {
+      "adjudication_budget": 20,
+      "expected_accuracy": 0.765225,
+      "expected_net_utility": 0.6187,
+      "exploratory_observers": 1,
+      "regime_change_probability": 0.5
+    },
+    {
+      "adjudication_budget": 20,
+      "expected_accuracy": 0.6478375,
+      "expected_net_utility": 0.497675,
+      "exploratory_observers": 1,
+      "regime_change_probability": 0.75
+    },
+    {
+      "adjudication_budget": 20,
+      "expected_accuracy": 0.53045,
+      "expected_net_utility": 0.37665,
+      "exploratory_observers": 1,
+      "regime_change_probability": 1.0
+    },
+    {
+      "adjudication_budget": 40,
+      "expected_accuracy": 1.0,
+      "expected_net_utility": 0.86075,
+      "exploratory_observers": 1,
+      "regime_change_probability": 0.0
+    },
+    {
+      "adjudication_budget": 40,
+      "expected_accuracy": 0.8826125,
+      "expected_net_utility": 0.739725,
+      "exploratory_observers": 1,
+      "regime_change_probability": 0.25
+    },
+    {
+      "adjudication_budget": 40,
+      "expected_accuracy": 0.765225,
+      "expected_net_utility": 0.6187,
+      "exploratory_observers": 1,
+      "regime_change_probability": 0.5
+    },
+    {
+      "adjudication_budget": 40,
+      "expected_accuracy": 0.6478375,
+      "expected_net_utility": 0.497675,
+      "exploratory_observers": 1,
+      "regime_change_probability": 0.75
+    },
+    {
+      "adjudication_budget": 40,
+      "expected_accuracy": 0.53045,
+      "expected_net_utility": 0.37665,
+      "exploratory_observers": 1,
+      "regime_change_probability": 1.0
+    },
+    {
+      "adjudication_budget": 65,
+      "expected_accuracy": 1.0,
+      "expected_net_utility": 0.86075,
+      "exploratory_observers": 1,
+      "regime_change_probability": 0.0
+    },
+    {
+      "adjudication_budget": 65,
+      "expected_accuracy": 0.8826125,
+      "expected_net_utility": 0.739725,
+      "exploratory_observers": 1,
+      "regime_change_probability": 0.25
+    },
+    {
+      "adjudication_budget": 65,
+      "expected_accuracy": 0.765225,
+      "expected_net_utility": 0.6187,
+      "exploratory_observers": 1,
+      "regime_change_probability": 0.5
+    },
+    {
+      "adjudication_budget": 65,
+      "expected_accuracy": 0.6478375,
+      "expected_net_utility": 0.497675,
+      "exploratory_observers": 1,
+      "regime_change_probability": 0.75
+    },
+    {
+      "adjudication_budget": 65,
+      "expected_accuracy": 0.53045,
+      "expected_net_utility": 0.37665,
+      "exploratory_observers": 1,
+      "regime_change_probability": 1.0
+    },
+    {
+      "adjudication_budget": 5,
+      "expected_accuracy": 0.853325,
+      "expected_net_utility": 0.734875,
+      "exploratory_observers": 2,
+      "regime_change_probability": 0.0
+    },
+    {
+      "adjudication_budget": 5,
+      "expected_accuracy": 0.77780625,
+      "expected_net_utility": 0.65665625,
+      "exploratory_observers": 2,
+      "regime_change_probability": 0.25
+    },
+    {
+      "adjudication_budget": 5,
+      "expected_accuracy": 0.7022875,
+      "expected_net_utility": 0.5784374999999999,
+      "exploratory_observers": 2,
+      "regime_change_probability": 0.5
+    },
+    {
+      "adjudication_budget": 5,
+      "expected_accuracy": 0.62676875,
+      "expected_net_utility": 0.5002187499999999,
+      "exploratory_observers": 2,
+      "regime_change_probability": 0.75
+    },
+    {
+      "adjudication_budget": 5,
+      "expected_accuracy": 0.55125,
+      "expected_net_utility": 0.422,
+      "exploratory_observers": 2,
+      "regime_change_probability": 1.0
+    },
+    {
+      "adjudication_budget": 10,
+      "expected_accuracy": 0.989875,
+      "expected_net_utility": 0.849725,
+      "exploratory_observers": 2,
+      "regime_change_probability": 0.0
+    },
+    {
+      "adjudication_budget": 10,
+      "expected_accuracy": 0.88021875,
+      "expected_net_utility": 0.73654375,
+      "exploratory_observers": 2,
+      "regime_change_probability": 0.25
+    },
+    {
+      "adjudication_budget": 10,
+      "expected_accuracy": 0.7705625,
+      "expected_net_utility": 0.6233624999999999,
+      "exploratory_observers": 2,
+      "regime_change_probability": 0.5
+    },
+    {
+      "adjudication_budget": 10,
+      "expected_accuracy": 0.66090625,
+      "expected_net_utility": 0.5101812499999999,
+      "exploratory_observers": 2,
+      "regime_change_probability": 0.75
+    },
+    {
+      "adjudication_budget": 10,
+      "expected_accuracy": 0.55125,
+      "expected_net_utility": 0.39699999999999996,
+      "exploratory_observers": 2,
+      "regime_change_probability": 1.0
+    },
+    {
+      "adjudication_budget": 20,
+      "expected_accuracy": 1.0,
+      "expected_net_utility": 0.84,
+      "exploratory_observers": 2,
+      "regime_change_probability": 0.0
+    },
+    {
+      "adjudication_budget": 20,
+      "expected_accuracy": 0.8878125,
+      "expected_net_utility": 0.7242500000000001,
+      "exploratory_observers": 2,
+      "regime_change_probability": 0.25
+    },
+    {
+      "adjudication_budget": 20,
+      "expected_accuracy": 0.775625,
+      "expected_net_utility": 0.6084999999999999,
+      "exploratory_observers": 2,
+      "regime_change_probability": 0.5
+    },
+    {
+      "adjudication_budget": 20,
+      "expected_accuracy": 0.6634375,
+      "expected_net_utility": 0.49274999999999997,
+      "exploratory_observers": 2,
+      "regime_change_probability": 0.75
+    },
+    {
+      "adjudication_budget": 20,
+      "expected_accuracy": 0.55125,
+      "expected_net_utility": 0.377,
+      "exploratory_observers": 2,
+      "regime_change_probability": 1.0
+    },
+    {
+      "adjudication_budget": 40,
+      "expected_accuracy": 1.0,
+      "expected_net_utility": 0.84,
+      "exploratory_observers": 2,
+      "regime_change_probability": 0.0
+    },
+    {
+      "adjudication_budget": 40,
+      "expected_accuracy": 0.8878125,
+      "expected_net_utility": 0.7242500000000001,
+      "exploratory_observers": 2,
+      "regime_change_probability": 0.25
+    },
+    {
+      "adjudication_budget": 40,
+      "expected_accuracy": 0.775625,
+      "expected_net_utility": 0.6084999999999999,
+      "exploratory_observers": 2,
+      "regime_change_probability": 0.5
+    },
+    {
+      "adjudication_budget": 40,
+      "expected_accuracy": 0.6634375,
+      "expected_net_utility": 0.49274999999999997,
+      "exploratory_observers": 2,
+      "regime_change_probability": 0.75
+    },
+    {
+      "adjudication_budget": 40,
+      "expected_accuracy": 0.55125,
+      "expected_net_utility": 0.377,
+      "exploratory_observers": 2,
+      "regime_change_probability": 1.0
+    },
+    {
+      "adjudication_budget": 65,
+      "expected_accuracy": 1.0,
+      "expected_net_utility": 0.84,
+      "exploratory_observers": 2,
+      "regime_change_probability": 0.0
+    },
+    {
+      "adjudication_budget": 65,
+      "expected_accuracy": 0.8878125,
+      "expected_net_utility": 0.7242500000000001,
+      "exploratory_observers": 2,
+      "regime_change_probability": 0.25
+    },
+    {
+      "adjudication_budget": 65,
+      "expected_accuracy": 0.775625,
+      "expected_net_utility": 0.6084999999999999,
+      "exploratory_observers": 2,
+      "regime_change_probability": 0.5
+    },
+    {
+      "adjudication_budget": 65,
+      "expected_accuracy": 0.6634375,
+      "expected_net_utility": 0.49274999999999997,
+      "exploratory_observers": 2,
+      "regime_change_probability": 0.75
+    },
+    {
+      "adjudication_budget": 65,
+      "expected_accuracy": 0.55125,
+      "expected_net_utility": 0.377,
+      "exploratory_observers": 2,
+      "regime_change_probability": 1.0
+    },
+    {
+      "adjudication_budget": 5,
+      "expected_accuracy": 0.8160000000000001,
+      "expected_net_utility": 0.6965,
+      "exploratory_observers": 5,
+      "regime_change_probability": 0.0
+    },
+    {
+      "adjudication_budget": 5,
+      "expected_accuracy": 0.7679,
+      "expected_net_utility": 0.6464125000000001,
+      "exploratory_observers": 5,
+      "regime_change_probability": 0.25
+    },
+    {
+      "adjudication_budget": 5,
+      "expected_accuracy": 0.7198,
+      "expected_net_utility": 0.596325,
+      "exploratory_observers": 5,
+      "regime_change_probability": 0.5
+    },
+    {
+      "adjudication_budget": 5,
+      "expected_accuracy": 0.6717,
+      "expected_net_utility": 0.5462375,
+      "exploratory_observers": 5,
+      "regime_change_probability": 0.75
+    },
+    {
+      "adjudication_budget": 5,
+      "expected_accuracy": 0.6236,
+      "expected_net_utility": 0.49615,
+      "exploratory_observers": 5,
+      "regime_change_probability": 1.0
+    },
+    {
+      "adjudication_budget": 10,
+      "expected_accuracy": 0.8855500000000001,
+      "expected_net_utility": 0.7436,
+      "exploratory_observers": 5,
+      "regime_change_probability": 0.0
+    },
+    {
+      "adjudication_budget": 10,
+      "expected_accuracy": 0.82545625,
+      "expected_net_utility": 0.68103125,
+      "exploratory_observers": 5,
+      "regime_change_probability": 0.25
+    },
+    {
+      "adjudication_budget": 10,
+      "expected_accuracy": 0.7653625,
+      "expected_net_utility": 0.6184625,
+      "exploratory_observers": 5,
+      "regime_change_probability": 0.5
+    },
+    {
+      "adjudication_budget": 10,
+      "expected_accuracy": 0.70526875,
+      "expected_net_utility": 0.55589375,
+      "exploratory_observers": 5,
+      "regime_change_probability": 0.75
+    },
+    {
+      "adjudication_budget": 10,
+      "expected_accuracy": 0.645175,
+      "expected_net_utility": 0.493325,
+      "exploratory_observers": 5,
+      "regime_change_probability": 1.0
+    },
+    {
+      "adjudication_budget": 20,
+      "expected_accuracy": 0.9621999999999999,
+      "expected_net_utility": 0.7716,
+      "exploratory_observers": 5,
+      "regime_change_probability": 0.0
+    },
+    {
+      "adjudication_budget": 20,
+      "expected_accuracy": 0.8830625,
+      "expected_net_utility": 0.6896874999999999,
+      "exploratory_observers": 5,
+      "regime_change_probability": 0.25
+    },
+    {
+      "adjudication_budget": 20,
+      "expected_accuracy": 0.803925,
+      "expected_net_utility": 0.607775,
+      "exploratory_observers": 5,
+      "regime_change_probability": 0.5
+    },
+    {
+      "adjudication_budget": 20,
+      "expected_accuracy": 0.7247875,
+      "expected_net_utility": 0.5258625,
+      "exploratory_observers": 5,
+      "regime_change_probability": 0.75
+    },
+    {
+      "adjudication_budget": 20,
+      "expected_accuracy": 0.6456500000000001,
+      "expected_net_utility": 0.44395,
+      "exploratory_observers": 5,
+      "regime_change_probability": 1.0
+    },
+    {
+      "adjudication_budget": 40,
+      "expected_accuracy": 1.0,
+      "expected_net_utility": 0.77825,
+      "exploratory_observers": 5,
+      "regime_change_probability": 0.0
+    },
+    {
+      "adjudication_budget": 40,
+      "expected_accuracy": 0.9114125,
+      "expected_net_utility": 0.6867375,
+      "exploratory_observers": 5,
+      "regime_change_probability": 0.25
+    },
+    {
+      "adjudication_budget": 40,
+      "expected_accuracy": 0.822825,
+      "expected_net_utility": 0.595225,
+      "exploratory_observers": 5,
+      "regime_change_probability": 0.5
+    },
+    {
+      "adjudication_budget": 40,
+      "expected_accuracy": 0.7342375,
+      "expected_net_utility": 0.5037125,
+      "exploratory_observers": 5,
+      "regime_change_probability": 0.75
+    },
+    {
+      "adjudication_budget": 40,
+      "expected_accuracy": 0.6456500000000001,
+      "expected_net_utility": 0.41219999999999996,
+      "exploratory_observers": 5,
+      "regime_change_probability": 1.0
+    },
+    {
+      "adjudication_budget": 65,
+      "expected_accuracy": 1.0,
+      "expected_net_utility": 0.77825,
+      "exploratory_observers": 5,
+      "regime_change_probability": 0.0
+    },
+    {
+      "adjudication_budget": 65,
+      "expected_accuracy": 0.9114125,
+      "expected_net_utility": 0.6867375,
+      "exploratory_observers": 5,
+      "regime_change_probability": 0.25
+    },
+    {
+      "adjudication_budget": 65,
+      "expected_accuracy": 0.822825,
+      "expected_net_utility": 0.595225,
+      "exploratory_observers": 5,
+      "regime_change_probability": 0.5
+    },
+    {
+      "adjudication_budget": 65,
+      "expected_accuracy": 0.7342375,
+      "expected_net_utility": 0.5037125,
+      "exploratory_observers": 5,
+      "regime_change_probability": 0.75
+    },
+    {
+      "adjudication_budget": 65,
+      "expected_accuracy": 0.6456500000000001,
+      "expected_net_utility": 0.41219999999999996,
+      "exploratory_observers": 5,
+      "regime_change_probability": 1.0
+    },
+    {
+      "adjudication_budget": 5,
+      "expected_accuracy": 0.7942,
+      "expected_net_utility": 0.6732,
+      "exploratory_observers": 10,
+      "regime_change_probability": 0.0
+    },
+    {
+      "adjudication_budget": 5,
+      "expected_accuracy": 0.77116875,
+      "expected_net_utility": 0.64911875,
+      "exploratory_observers": 10,
+      "regime_change_probability": 0.25
+    },
+    {
+      "adjudication_budget": 5,
+      "expected_accuracy": 0.7481375,
+      "expected_net_utility": 0.6250375,
+      "exploratory_observers": 10,
+      "regime_change_probability": 0.5
+    },
+    {
+      "adjudication_budget": 5,
+      "expected_accuracy": 0.72510625,
+      "expected_net_utility": 0.60095625,
+      "exploratory_observers": 10,
+      "regime_change_probability": 0.75
+    },
+    {
+      "adjudication_budget": 5,
+      "expected_accuracy": 0.702075,
+      "expected_net_utility": 0.576875,
+      "exploratory_observers": 10,
+      "regime_change_probability": 1.0
+    },
+    {
+      "adjudication_budget": 10,
+      "expected_accuracy": 0.8696,
+      "expected_net_utility": 0.72675,
+      "exploratory_observers": 10,
+      "regime_change_probability": 0.0
+    },
+    {
+      "adjudication_budget": 10,
+      "expected_accuracy": 0.8276875,
+      "expected_net_utility": 0.6830375,
+      "exploratory_observers": 10,
+      "regime_change_probability": 0.25
+    },
+    {
+      "adjudication_budget": 10,
+      "expected_accuracy": 0.785775,
+      "expected_net_utility": 0.639325,
+      "exploratory_observers": 10,
+      "regime_change_probability": 0.5
+    },
+    {
+      "adjudication_budget": 10,
+      "expected_accuracy": 0.7438625,
+      "expected_net_utility": 0.5956125,
+      "exploratory_observers": 10,
+      "regime_change_probability": 0.75
+    },
+    {
+      "adjudication_budget": 10,
+      "expected_accuracy": 0.70195,
+      "expected_net_utility": 0.5519,
+      "exploratory_observers": 10,
+      "regime_change_probability": 1.0
+    },
+    {
+      "adjudication_budget": 20,
+      "expected_accuracy": 0.9525,
+      "expected_net_utility": 0.7617499999999999,
+      "exploratory_observers": 10,
+      "regime_change_probability": 0.0
+    },
+    {
+      "adjudication_budget": 20,
+      "expected_accuracy": 0.89113125,
+      "expected_net_utility": 0.69813125,
+      "exploratory_observers": 10,
+      "regime_change_probability": 0.25
+    },
+    {
+      "adjudication_budget": 20,
+      "expected_accuracy": 0.8297625,
+      "expected_net_utility": 0.6345124999999999,
+      "exploratory_observers": 10,
+      "regime_change_probability": 0.5
+    },
+    {
+      "adjudication_budget": 20,
+      "expected_accuracy": 0.76839375,
+      "expected_net_utility": 0.57089375,
+      "exploratory_observers": 10,
+      "regime_change_probability": 0.75
+    },
+    {
+      "adjudication_budget": 20,
+      "expected_accuracy": 0.707025,
+      "expected_net_utility": 0.5072749999999999,
+      "exploratory_observers": 10,
+      "regime_change_probability": 1.0
+    },
+    {
+      "adjudication_budget": 40,
+      "expected_accuracy": 1.0,
+      "expected_net_utility": 0.7105000000000001,
+      "exploratory_observers": 10,
+      "regime_change_probability": 0.0
+    },
+    {
+      "adjudication_budget": 40,
+      "expected_accuracy": 0.92918125,
+      "expected_net_utility": 0.6372812500000001,
+      "exploratory_observers": 10,
+      "regime_change_probability": 0.25
+    },
+    {
+      "adjudication_budget": 40,
+      "expected_accuracy": 0.8583625,
+      "expected_net_utility": 0.5640625,
+      "exploratory_observers": 10,
+      "regime_change_probability": 0.5
+    },
+    {
+      "adjudication_budget": 40,
+      "expected_accuracy": 0.78754375,
+      "expected_net_utility": 0.49084375,
+      "exploratory_observers": 10,
+      "regime_change_probability": 0.75
+    },
+    {
+      "adjudication_budget": 40,
+      "expected_accuracy": 0.7167250000000001,
+      "expected_net_utility": 0.417625,
+      "exploratory_observers": 10,
+      "regime_change_probability": 1.0
+    },
+    {
+      "adjudication_budget": 65,
+      "expected_accuracy": 1.0,
+      "expected_net_utility": 0.6940000000000001,
+      "exploratory_observers": 10,
+      "regime_change_probability": 0.0
+    },
+    {
+      "adjudication_budget": 65,
+      "expected_accuracy": 0.92918125,
+      "expected_net_utility": 0.6207812500000001,
+      "exploratory_observers": 10,
+      "regime_change_probability": 0.25
+    },
+    {
+      "adjudication_budget": 65,
+      "expected_accuracy": 0.8583625,
+      "expected_net_utility": 0.5475625000000001,
+      "exploratory_observers": 10,
+      "regime_change_probability": 0.5
+    },
+    {
+      "adjudication_budget": 65,
+      "expected_accuracy": 0.78754375,
+      "expected_net_utility": 0.47434375000000006,
+      "exploratory_observers": 10,
+      "regime_change_probability": 0.75
+    },
+    {
+      "adjudication_budget": 65,
+      "expected_accuracy": 0.7167250000000001,
+      "expected_net_utility": 0.40112500000000006,
+      "exploratory_observers": 10,
+      "regime_change_probability": 1.0
+    },
+    {
+      "adjudication_budget": 5,
+      "expected_accuracy": 0.756575,
+      "expected_net_utility": 0.6340749999999999,
+      "exploratory_observers": 20,
+      "regime_change_probability": 0.0
+    },
+    {
+      "adjudication_budget": 5,
+      "expected_accuracy": 0.7409,
+      "expected_net_utility": 0.6178375,
+      "exploratory_observers": 20,
+      "regime_change_probability": 0.25
+    },
+    {
+      "adjudication_budget": 5,
+      "expected_accuracy": 0.725225,
+      "expected_net_utility": 0.6016,
+      "exploratory_observers": 20,
+      "regime_change_probability": 0.5
+    },
+    {
+      "adjudication_budget": 5,
+      "expected_accuracy": 0.70955,
+      "expected_net_utility": 0.5853625,
+      "exploratory_observers": 20,
+      "regime_change_probability": 0.75
+    },
+    {
+      "adjudication_budget": 5,
+      "expected_accuracy": 0.693875,
+      "expected_net_utility": 0.569125,
+      "exploratory_observers": 20,
+      "regime_change_probability": 1.0
+    },
+    {
+      "adjudication_budget": 10,
+      "expected_accuracy": 0.83315,
+      "expected_net_utility": 0.68895,
+      "exploratory_observers": 20,
+      "regime_change_probability": 0.0
+    },
+    {
+      "adjudication_budget": 10,
+      "expected_accuracy": 0.8083125,
+      "expected_net_utility": 0.6631,
+      "exploratory_observers": 20,
+      "regime_change_probability": 0.25
+    },
+    {
+      "adjudication_budget": 10,
+      "expected_accuracy": 0.783475,
+      "expected_net_utility": 0.63725,
+      "exploratory_observers": 20,
+      "regime_change_probability": 0.5
+    },
+    {
+      "adjudication_budget": 10,
+      "expected_accuracy": 0.7586375,
+      "expected_net_utility": 0.6113999999999999,
+      "exploratory_observers": 20,
+      "regime_change_probability": 0.75
+    },
+    {
+      "adjudication_budget": 10,
+      "expected_accuracy": 0.7338,
+      "expected_net_utility": 0.58555,
+      "exploratory_observers": 20,
+      "regime_change_probability": 1.0
+    },
+    {
+      "adjudication_budget": 20,
+      "expected_accuracy": 0.895675,
+      "expected_net_utility": 0.703575,
+      "exploratory_observers": 20,
+      "regime_change_probability": 0.0
+    },
+    {
+      "adjudication_budget": 20,
+      "expected_accuracy": 0.8643375,
+      "expected_net_utility": 0.6710375,
+      "exploratory_observers": 20,
+      "regime_change_probability": 0.25
+    },
+    {
+      "adjudication_budget": 20,
+      "expected_accuracy": 0.833,
+      "expected_net_utility": 0.6385,
+      "exploratory_observers": 20,
+      "regime_change_probability": 0.5
+    },
+    {
+      "adjudication_budget": 20,
+      "expected_accuracy": 0.8016625000000001,
+      "expected_net_utility": 0.6059625,
+      "exploratory_observers": 20,
+      "regime_change_probability": 0.75
+    },
+    {
+      "adjudication_budget": 20,
+      "expected_accuracy": 0.770325,
+      "expected_net_utility": 0.573425,
+      "exploratory_observers": 20,
+      "regime_change_probability": 1.0
+    },
+    {
+      "adjudication_budget": 40,
+      "expected_accuracy": 0.990375,
+      "expected_net_utility": 0.7002250000000001,
+      "exploratory_observers": 20,
+      "regime_change_probability": 0.0
+    },
+    {
+      "adjudication_budget": 40,
+      "expected_accuracy": 0.93916875,
+      "expected_net_utility": 0.6476687500000001,
+      "exploratory_observers": 20,
+      "regime_change_probability": 0.25
+    },
+    {
+      "adjudication_budget": 40,
+      "expected_accuracy": 0.8879625,
+      "expected_net_utility": 0.5951125,
+      "exploratory_observers": 20,
+      "regime_change_probability": 0.5
+    },
+    {
+      "adjudication_budget": 40,
+      "expected_accuracy": 0.83675625,
+      "expected_net_utility": 0.5425562500000001,
+      "exploratory_observers": 20,
+      "regime_change_probability": 0.75
+    },
+    {
+      "adjudication_budget": 40,
+      "expected_accuracy": 0.78555,
+      "expected_net_utility": 0.4900000000000001,
+      "exploratory_observers": 20,
+      "regime_change_probability": 1.0
+    },
+    {
+      "adjudication_budget": 65,
+      "expected_accuracy": 1.0,
+      "expected_net_utility": 0.5862499999999999,
+      "exploratory_observers": 20,
+      "regime_change_probability": 0.0
+    },
+    {
+      "adjudication_budget": 65,
+      "expected_accuracy": 0.94876875,
+      "expected_net_utility": 0.53366875,
+      "exploratory_observers": 20,
+      "regime_change_probability": 0.25
+    },
+    {
+      "adjudication_budget": 65,
+      "expected_accuracy": 0.8975375,
+      "expected_net_utility": 0.4810875,
+      "exploratory_observers": 20,
+      "regime_change_probability": 0.5
+    },
+    {
+      "adjudication_budget": 65,
+      "expected_accuracy": 0.84630625,
+      "expected_net_utility": 0.42850625000000003,
+      "exploratory_observers": 20,
+      "regime_change_probability": 0.75
+    },
+    {
+      "adjudication_budget": 65,
+      "expected_accuracy": 0.795075,
+      "expected_net_utility": 0.375925,
+      "exploratory_observers": 20,
+      "regime_change_probability": 1.0
+    }
+  ],
+  "attention_frontier_optima": [
+    {
+      "adjudication_budget": 5,
+      "expected_net_utility": 0.885,
+      "exploratory_observers": 0,
+      "regime_change_probability": 0.0
+    },
+    {
+      "adjudication_budget": 5,
+      "expected_net_utility": 0.7554875000000001,
+      "exploratory_observers": 0,
+      "regime_change_probability": 0.25
+    },
+    {
+      "adjudication_budget": 10,
+      "expected_net_utility": 0.639325,
+      "exploratory_observers": 10,
+      "regime_change_probability": 0.5
+    },
+    {
+      "adjudication_budget": 10,
+      "expected_net_utility": 0.6113999999999999,
+      "exploratory_observers": 20,
+      "regime_change_probability": 0.75
+    },
+    {
+      "adjudication_budget": 10,
+      "expected_net_utility": 0.58555,
+      "exploratory_observers": 20,
+      "regime_change_probability": 1.0
+    }
+  ],
   "claim_targets": [],
   "config": {
     "adjudication_budget": 20,
@@ -458,6 +1542,141 @@
   ],
   "instrument": "adjudication_limited_exploration",
   "interpretation_boundary": "This instrument prices declared observation, adjudication, and false-positive proxies. It is not evidence about human, market, or production-model performance.",
+  "paired_budget_comparison": {
+    "ci95_delta_j20_minus_j10": [
+      -0.02554099365458477,
+      0.028040993654584696
+    ],
+    "exploratory_observers": 20,
+    "j10_vs_j20": [
+      {
+        "delta_j20_minus_j10": -0.050000000000000044,
+        "seed": 0,
+        "utility_j10": 0.6025,
+        "utility_j20": 0.5525
+      },
+      {
+        "delta_j20_minus_j10": 0.016249999999999987,
+        "seed": 1,
+        "utility_j10": 0.599,
+        "utility_j20": 0.61525
+      },
+      {
+        "delta_j20_minus_j10": 0.03949999999999998,
+        "seed": 2,
+        "utility_j10": 0.6789999999999999,
+        "utility_j20": 0.7184999999999999
+      },
+      {
+        "delta_j20_minus_j10": 0.017249999999999988,
+        "seed": 3,
+        "utility_j10": 0.5925,
+        "utility_j20": 0.60975
+      },
+      {
+        "delta_j20_minus_j10": -0.04999999999999993,
+        "seed": 4,
+        "utility_j10": 0.6912499999999999,
+        "utility_j20": 0.64125
+      },
+      {
+        "delta_j20_minus_j10": 0.07674999999999987,
+        "seed": 5,
+        "utility_j10": 0.53925,
+        "utility_j20": 0.6159999999999999
+      },
+      {
+        "delta_j20_minus_j10": -0.050000000000000044,
+        "seed": 6,
+        "utility_j10": 0.6659999999999999,
+        "utility_j20": 0.6159999999999999
+      },
+      {
+        "delta_j20_minus_j10": 0.10699999999999987,
+        "seed": 7,
+        "utility_j10": 0.60675,
+        "utility_j20": 0.7137499999999999
+      },
+      {
+        "delta_j20_minus_j10": -0.05400000000000005,
+        "seed": 8,
+        "utility_j10": 0.6675,
+        "utility_j20": 0.6134999999999999
+      },
+      {
+        "delta_j20_minus_j10": 0.046499999999999986,
+        "seed": 9,
+        "utility_j10": 0.60225,
+        "utility_j20": 0.6487499999999999
+      },
+      {
+        "delta_j20_minus_j10": -0.050000000000000044,
+        "seed": 10,
+        "utility_j10": 0.6659999999999999,
+        "utility_j20": 0.6159999999999999
+      },
+      {
+        "delta_j20_minus_j10": 0.020999999999999908,
+        "seed": 11,
+        "utility_j10": 0.6012500000000001,
+        "utility_j20": 0.62225
+      },
+      {
+        "delta_j20_minus_j10": -0.050000000000000044,
+        "seed": 12,
+        "utility_j10": 0.7625,
+        "utility_j20": 0.7124999999999999
+      },
+      {
+        "delta_j20_minus_j10": 0.15449999999999997,
+        "seed": 13,
+        "utility_j10": 0.5005,
+        "utility_j20": 0.6549999999999999
+      },
+      {
+        "delta_j20_minus_j10": 0.04325000000000001,
+        "seed": 14,
+        "utility_j10": 0.6792499999999999,
+        "utility_j20": 0.7224999999999999
+      },
+      {
+        "delta_j20_minus_j10": -0.061000000000000054,
+        "seed": 15,
+        "utility_j10": 0.61375,
+        "utility_j20": 0.55275
+      },
+      {
+        "delta_j20_minus_j10": -0.04999999999999993,
+        "seed": 16,
+        "utility_j10": 0.6972499999999999,
+        "utility_j20": 0.64725
+      },
+      {
+        "delta_j20_minus_j10": -0.050000000000000044,
+        "seed": 17,
+        "utility_j10": 0.67975,
+        "utility_j20": 0.6297499999999999
+      },
+      {
+        "delta_j20_minus_j10": -0.050000000000000044,
+        "seed": 18,
+        "utility_j10": 0.764,
+        "utility_j20": 0.714
+      },
+      {
+        "delta_j20_minus_j10": 0.017999999999999905,
+        "seed": 19,
+        "utility_j10": 0.5347500000000001,
+        "utility_j20": 0.55275
+      }
+    ],
+    "j10_wins": 10,
+    "j20_wins": 10,
+    "mean_delta_j20_minus_j10": 0.0012499999999999623,
+    "regime_change_probability": 0.5,
+    "std_delta_j20_minus_j10": 0.06112906428205815,
+    "ties": 0
+  },
   "policies": {
     "diverse_top_j": "union candidates ranked by noisy adjudication and truncated at J",
     "diverse_unfiltered": "all union candidates are retained",

@@ -1,4 +1,4 @@
-"""Prospective adjudication-limited exploration experiment.
+"""Synthetic adjudication-limited exploration experiment.
 
 This is a synthetic instrument for measuring the tradeoff between novel-signal
 coverage and the cost of evaluating an expanding candidate set. It is not
@@ -10,6 +10,7 @@ from dataclasses import dataclass
 import json
 import random
 from statistics import mean, pstdev
+from math import sqrt
 
 
 @dataclass(frozen=True)
@@ -60,6 +61,13 @@ def _mean_metrics(rows: list[dict[str, float | int]]) -> dict[str, float | int]:
         if key in {"accuracy", "novel_signal_coverage", "false_positive_rate", "net_utility"}:
             result[f"std_{key}"] = pstdev(values)
     return result
+
+
+def _regime_pair(config: AdjudicationConfig, seed: int, explorers: int, budget: int) -> tuple[dict[str, float | int], dict[str, float | int]]:
+    return (
+        _one_policy(config, seed, explorers, "diverse_top_j", config.stable_causal, budget),
+        _one_policy(config, seed, explorers, "diverse_top_j", config.shifted_causal, budget),
+    )
 
 
 def _one_policy(config: AdjudicationConfig, seed: int, explorers: int, policy: str, active_causal: tuple[int, ...] | None = None, adjudication_budget: int | None = None) -> dict[str, float | int]:
@@ -142,8 +150,7 @@ def run_adjudication_experiment(config: AdjudicationConfig | None = None) -> dic
         for probability in (0.0, 0.25, 0.5, 0.75, 1.0):
             rows = []
             for seed in config.seeds:
-                stable = _one_policy(config, seed, max(config.exploratory_counts), "diverse_top_j", config.stable_causal, budget)
-                shifted = _one_policy(config, seed, max(config.exploratory_counts), "diverse_top_j", config.shifted_causal, budget)
+                stable, shifted = _regime_pair(config, seed, max(config.exploratory_counts), budget)
                 rows.append({"stable_accuracy": stable["accuracy"], "stable_net_utility": stable["net_utility"], "stable_false_positive_rate": stable["false_positive_rate"], "accuracy": shifted["accuracy"], "net_utility": shifted["net_utility"], "false_positive_rate": shifted["false_positive_rate"]})
             sensitivity.append({
                 "adjudication_budget": budget,
@@ -152,6 +159,51 @@ def run_adjudication_experiment(config: AdjudicationConfig | None = None) -> dic
                 "expected_net_utility": mean((1 - probability) * row["stable_net_utility"] + probability * row["net_utility"] for row in rows),
                 "false_positive_rate": mean((1 - probability) * row["stable_false_positive_rate"] + probability * row["false_positive_rate"] for row in rows),
             })
+
+    frontier = []
+    for explorers in config.exploratory_counts:
+        for budget in (5, 10, 20, 40, 65):
+            rows = []
+            for seed in config.seeds:
+                stable, shifted = _regime_pair(config, seed, explorers, budget)
+                rows.append((stable, shifted))
+            for probability in (0.0, 0.25, 0.5, 0.75, 1.0):
+                frontier.append({
+                    "exploratory_observers": explorers,
+                    "adjudication_budget": budget,
+                    "regime_change_probability": probability,
+                    "expected_accuracy": mean((1 - probability) * stable["accuracy"] + probability * shifted["accuracy"] for stable, shifted in rows),
+                    "expected_net_utility": mean((1 - probability) * stable["net_utility"] + probability * shifted["net_utility"] for stable, shifted in rows),
+                })
+
+    paired = []
+    max_explorers = max(config.exploratory_counts)
+    for seed in config.seeds:
+        ten_stable, ten_shifted = _regime_pair(config, seed, max_explorers, 10)
+        twenty_stable, twenty_shifted = _regime_pair(config, seed, max_explorers, 20)
+        u10 = 0.5 * (ten_stable["net_utility"] + ten_shifted["net_utility"])
+        u20 = 0.5 * (twenty_stable["net_utility"] + twenty_shifted["net_utility"])
+        paired.append({"seed": seed, "utility_j10": u10, "utility_j20": u20, "delta_j20_minus_j10": u20 - u10})
+    deltas = [row["delta_j20_minus_j10"] for row in paired]
+    delta_mean = mean(deltas)
+    delta_std = pstdev(deltas)
+    paired_summary = {
+        "regime_change_probability": 0.5,
+        "exploratory_observers": max_explorers,
+        "j10_vs_j20": paired,
+        "mean_delta_j20_minus_j10": delta_mean,
+        "std_delta_j20_minus_j10": delta_std,
+        "ci95_delta_j20_minus_j10": [delta_mean - 1.96 * delta_std / sqrt(len(deltas)), delta_mean + 1.96 * delta_std / sqrt(len(deltas))],
+        "j10_wins": sum(delta < 0 for delta in deltas),
+        "j20_wins": sum(delta > 0 for delta in deltas),
+        "ties": sum(delta == 0 for delta in deltas),
+    }
+
+    optima = []
+    for probability in (0.0, 0.25, 0.5, 0.75, 1.0):
+        candidates = [row for row in frontier if row["regime_change_probability"] == probability]
+        best = max(candidates, key=lambda row: row["expected_net_utility"])
+        optima.append({"regime_change_probability": probability, "exploratory_observers": best["exploratory_observers"], "adjudication_budget": best["adjudication_budget"], "expected_net_utility": best["expected_net_utility"]})
     return {
         "schema_version": "1.0",
         "status": "synthetic_fixture_not_empirical",
@@ -177,6 +229,9 @@ def run_adjudication_experiment(config: AdjudicationConfig | None = None) -> dic
         },
         "diversity_sweep": sweep,
         "regime_probability_sweep": sensitivity,
+        "paired_budget_comparison": paired_summary,
+        "attention_frontier": frontier,
+        "attention_frontier_optima": optima,
         "interpretation_boundary": "This instrument prices declared observation, adjudication, and false-positive proxies. It is not evidence about human, market, or production-model performance.",
     }
 

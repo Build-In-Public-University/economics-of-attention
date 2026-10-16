@@ -53,6 +53,15 @@ class AdjudicationExperimentTests(unittest.TestCase):
         self.assertGreater(stable["expected_accuracy"], shifted["expected_accuracy"])
         self.assertLessEqual(stable["false_positive_rate"], shifted["false_positive_rate"])
 
+    def test_reports_paired_uncertainty_and_two_budget_frontier(self):
+        result = run_adjudication_experiment(AdjudicationConfig(seeds=(0, 1, 2), trials=100))
+        paired = result["paired_budget_comparison"]
+        self.assertEqual(len(paired["j10_vs_j20"]), 3)
+        self.assertEqual(paired["j10_wins"] + paired["j20_wins"] + paired["ties"], 3)
+        frontier = result["attention_frontier"]
+        self.assertEqual(len(frontier), 6 * 5 * 5)
+        self.assertEqual(len(result["attention_frontier_optima"]), 5)
+
 
 if __name__ == "__main__":
     unittest.main()
