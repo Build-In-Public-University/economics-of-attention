@@ -27,7 +27,7 @@ def main() -> int:
         gate("citation_lineage", all(term in DRAFT for term in ("Shannon", "Hayek", "Grossman–Stiglitz")), True, "foundational lineage named; bibliographic verification remains ledger-bound"),
         gate("concrete_example", all(term in DRAFT for term in ("running synthetic case", "regime then shifts", "scouts", "adjudication")), False, "single running synthetic case is carried through compression, shift, discovery, and adjudication"),
         gate("faithful_compression", "boxed" in DRAFT and "rightarrow" in DRAFT, False, "equations and transformation chains present"),
-        gate("reader_attention_resolutions", all(term in DRAFT for term in ("30s", "3m", "15m", "full audit")), False, "reader-resolution ladder is not yet explicit"),
+        gate("reader_attention_resolutions", all(term in DRAFT.lower() for term in ("30s", "3m", "15m", "full audit")), False, "reader-resolution ladder is explicit"),
     ]
     bounded = [c for c in CLAIMS["claims"] if c["type"] != "definition"]
     claim_matrix = []

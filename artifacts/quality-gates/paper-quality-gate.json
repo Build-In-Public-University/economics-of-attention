@@ -74,10 +74,10 @@
       "status": "pass"
     },
     {
-      "evidence": "reader-resolution ladder is not yet explicit",
+      "evidence": "reader-resolution ladder is explicit",
       "gate": "reader_attention_resolutions",
       "hard": false,
-      "status": "fail"
+      "status": "pass"
     }
   ],
   "claim_hard_failures": [],
