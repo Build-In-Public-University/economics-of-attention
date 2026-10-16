@@ -20,7 +20,7 @@ The hub owns shared vocabulary, evidence conventions, and cross-paper research i
 - Formal definitions and falsifiers registered in `claims/claims.json`.
 - No empirical results are claimed.
 - No market, language, or human-subject experiment has been run here. A learned synthetic classifier C4 instrument is now included; no LLM or production-AI experiment has been run.
-- A v4 semantic substrate experiment has been run with both a deterministic local adapter and a provider-backed replication; neither is external validation.
+- A v4 semantic substrate experiment has a deterministic local receipt; its prior provider receipt is historical. The current provider target is `gpt-5.6-luna`, which is not exposed by the configured OpenRouter model catalog and therefore has not been rerun.
 - Bibliography is intentionally a verification ledger, not invented metadata.
 
 ## Layout

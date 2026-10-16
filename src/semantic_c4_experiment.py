@@ -65,7 +65,7 @@ def adjudicate(claims: list[dict], regime: str, budget: int) -> list[dict]:
     return [claim for _,_,claim in scored[:budget]]
 
 
-def run(adapter: str="local", model: str="openai/gpt-4o-mini", endpoint: str="https://openrouter.ai/api/v1/chat/completions", config: Config|None=None) -> dict:
+def run(adapter: str="local", model: str="gpt-5.6-luna", endpoint: str="https://openrouter.ai/api/v1/chat/completions", config: Config|None=None) -> dict:
     config=config or Config(); rows=[]
     for seed in config.seeds:
         rng=random.Random(seed)
@@ -83,7 +83,7 @@ def run(adapter: str="local", model: str="openai/gpt-4o-mini", endpoint: str="ht
 
 
 def main()->int:
-    p=argparse.ArgumentParser(); p.add_argument("--output",required=True); p.add_argument("--adapter",choices=("local","provider"),default="local"); p.add_argument("--model",default="openai/gpt-4o-mini"); p.add_argument("--endpoint",default="https://openrouter.ai/api/v1/chat/completions"); a=p.parse_args()
+    p=argparse.ArgumentParser(); p.add_argument("--output",required=True); p.add_argument("--adapter",choices=("local","provider"),default="local"); p.add_argument("--model",default="gpt-5.6-luna"); p.add_argument("--endpoint",default="https://openrouter.ai/api/v1/chat/completions"); a=p.parse_args()
     result=run(a.adapter,a.model,a.endpoint)
     with open(a.output,"w") as f: json.dump(result,f,indent=2,sort_keys=True); f.write("\n")
     print(a.output); return 0

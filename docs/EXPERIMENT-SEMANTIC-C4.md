@@ -14,15 +14,15 @@ v4 changes the substrate from structured feature coordinates to bounded textual 
 Two adapters are included:
 
 1. `local`: deterministic claim extraction for contract and pipeline verification;
-2. `provider`: OpenAI-compatible semantic generation through the configured OpenRouter endpoint, using `openai/gpt-4o-mini` in the recorded replication.
+2. `provider`: OpenAI-compatible semantic generation through a configured endpoint, targeting the requested `gpt-5.6-luna` model. The prior `gpt-4o-mini` receipt is historical and is not the current target.
 
 ## Local result
 
 Across five seeds, homogeneous shifted contexts produced zero novel claims. Heterogeneous shifted contexts exposed four novel claims under the bounded adjudicator. The local adapter is deliberately deterministic and is not a language-model result.
 
-## Provider replication
+## Provider replication status
 
-The provider receipt completed with 20 decision windows. It records request and output hashes rather than silently treating model output as ground truth. In the recorded run, homogeneous shifted contexts produced zero novel claims; heterogeneous shifted contexts produced four. This is a provider-backed synthetic replication, not evidence about production AI behavior.
+The prior provider receipt completed with 20 decision windows using `gpt-4o-mini`; it is retained as historical provenance only. The current target is `gpt-5.6-luna`. The configured OpenRouter model catalog does not expose that literal model ID, so no replacement provider receipt is claimed. The local receipt remains runnable; a provider rerun requires an endpoint that actually serves `gpt-5.6-luna`.
 
 ## Boundary
 
@@ -32,6 +32,6 @@ Run:
 
 ```bash
 python3 -m src.semantic_c4_experiment --adapter local --output artifacts/attention-v4/semantic-c4-local.json
-python3 -m src.semantic_c4_experiment --adapter provider --model openai/gpt-4o-mini --output artifacts/attention-v4/semantic-c4-provider.json
+python3 -m src.semantic_c4_experiment --adapter provider --model gpt-5.6-luna --output artifacts/attention-v4/semantic-c4-provider-gpt-5.6-luna.json
 python3 -m unittest tests.test_semantic_c4_experiment -v
 ```
