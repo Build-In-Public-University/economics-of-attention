@@ -18,6 +18,8 @@
     {
       "candidate_count": 3,
       "context_hash": "855a4fb1bec82c4366c2b698f325835e76799c0e5a30658360b2ac23130af8e5",
+      "context_slots": 6,
+      "input_token_count": 80,
       "novel_claims": 0,
       "policy": "homogeneous",
       "prompt_receipt": {
@@ -30,6 +32,8 @@
     {
       "candidate_count": 3,
       "context_hash": "7f3bb35bfe60e6edb21170596f9a1b7092b48f517c2bd771e7dae42c3976ef18",
+      "context_slots": 6,
+      "input_token_count": 88,
       "novel_claims": 2,
       "policy": "heterogeneous",
       "prompt_receipt": {
@@ -42,6 +46,8 @@
     {
       "candidate_count": 3,
       "context_hash": "855a4fb1bec82c4366c2b698f325835e76799c0e5a30658360b2ac23130af8e5",
+      "context_slots": 6,
+      "input_token_count": 80,
       "novel_claims": 0,
       "policy": "homogeneous",
       "prompt_receipt": {
@@ -54,6 +60,8 @@
     {
       "candidate_count": 3,
       "context_hash": "939517ecbdb4539cf49874ddd92d68678e3cbed9bd1d476b82a7ebd08e97fe31",
+      "context_slots": 6,
+      "input_token_count": 84,
       "novel_claims": 1,
       "policy": "heterogeneous",
       "prompt_receipt": {
@@ -66,6 +74,8 @@
     {
       "candidate_count": 3,
       "context_hash": "855a4fb1bec82c4366c2b698f325835e76799c0e5a30658360b2ac23130af8e5",
+      "context_slots": 6,
+      "input_token_count": 80,
       "novel_claims": 0,
       "policy": "homogeneous",
       "prompt_receipt": {
@@ -78,6 +88,8 @@
     {
       "candidate_count": 3,
       "context_hash": "3e63021485245ec8604025376e518357e5c50462c66efe41e85614b092fd0671",
+      "context_slots": 6,
+      "input_token_count": 84,
       "novel_claims": 0,
       "policy": "heterogeneous",
       "prompt_receipt": {
@@ -90,6 +102,8 @@
     {
       "candidate_count": 3,
       "context_hash": "855a4fb1bec82c4366c2b698f325835e76799c0e5a30658360b2ac23130af8e5",
+      "context_slots": 6,
+      "input_token_count": 80,
       "novel_claims": 0,
       "policy": "homogeneous",
       "prompt_receipt": {
@@ -102,6 +116,8 @@
     {
       "candidate_count": 3,
       "context_hash": "66dc0a709540a79bf58d911ff9cea34512b4a8b1f647f15f4ba97e08be100879",
+      "context_slots": 6,
+      "input_token_count": 89,
       "novel_claims": 2,
       "policy": "heterogeneous",
       "prompt_receipt": {
@@ -114,6 +130,8 @@
     {
       "candidate_count": 3,
       "context_hash": "855a4fb1bec82c4366c2b698f325835e76799c0e5a30658360b2ac23130af8e5",
+      "context_slots": 6,
+      "input_token_count": 80,
       "novel_claims": 0,
       "policy": "homogeneous",
       "prompt_receipt": {
@@ -126,6 +144,8 @@
     {
       "candidate_count": 3,
       "context_hash": "e8e1aba37bcb7b09ecdeff2feb8c45263a029ed1e790fd979081ee553056eb25",
+      "context_slots": 6,
+      "input_token_count": 83,
       "novel_claims": 2,
       "policy": "heterogeneous",
       "prompt_receipt": {
@@ -138,6 +158,8 @@
     {
       "candidate_count": 3,
       "context_hash": "855a4fb1bec82c4366c2b698f325835e76799c0e5a30658360b2ac23130af8e5",
+      "context_slots": 6,
+      "input_token_count": 80,
       "novel_claims": 0,
       "policy": "homogeneous",
       "prompt_receipt": {
@@ -150,6 +172,8 @@
     {
       "candidate_count": 3,
       "context_hash": "fca05c1e11d56dab07f20f080b72752aec4f4f9737653efbb963c42be7bdb9eb",
+      "context_slots": 6,
+      "input_token_count": 83,
       "novel_claims": 1,
       "policy": "heterogeneous",
       "prompt_receipt": {
@@ -162,6 +186,8 @@
     {
       "candidate_count": 3,
       "context_hash": "855a4fb1bec82c4366c2b698f325835e76799c0e5a30658360b2ac23130af8e5",
+      "context_slots": 6,
+      "input_token_count": 80,
       "novel_claims": 0,
       "policy": "homogeneous",
       "prompt_receipt": {
@@ -174,6 +200,8 @@
     {
       "candidate_count": 3,
       "context_hash": "87a4a57201d353b0641cab5b012ec5a1f1f56dd18da69ffb93f33fdfb7067495",
+      "context_slots": 6,
+      "input_token_count": 80,
       "novel_claims": 1,
       "policy": "heterogeneous",
       "prompt_receipt": {
@@ -186,6 +214,8 @@
     {
       "candidate_count": 3,
       "context_hash": "855a4fb1bec82c4366c2b698f325835e76799c0e5a30658360b2ac23130af8e5",
+      "context_slots": 6,
+      "input_token_count": 80,
       "novel_claims": 0,
       "policy": "homogeneous",
       "prompt_receipt": {
@@ -198,6 +228,8 @@
     {
       "candidate_count": 3,
       "context_hash": "5d90983db9fbeba054eb10b244e8b2f89246d3c8e635b2e0acdf16fceba5803d",
+      "context_slots": 6,
+      "input_token_count": 88,
       "novel_claims": 2,
       "policy": "heterogeneous",
       "prompt_receipt": {
@@ -210,6 +242,8 @@
     {
       "candidate_count": 3,
       "context_hash": "855a4fb1bec82c4366c2b698f325835e76799c0e5a30658360b2ac23130af8e5",
+      "context_slots": 6,
+      "input_token_count": 80,
       "novel_claims": 0,
       "policy": "homogeneous",
       "prompt_receipt": {
@@ -222,6 +256,8 @@
     {
       "candidate_count": 3,
       "context_hash": "6951f8f7bd8b2bdc04f1c953f31bf0e444c8c58fdbeeb99a7c68602c1fa4173d",
+      "context_slots": 6,
+      "input_token_count": 83,
       "novel_claims": 0,
       "policy": "heterogeneous",
       "prompt_receipt": {
@@ -234,6 +270,8 @@
     {
       "candidate_count": 3,
       "context_hash": "855a4fb1bec82c4366c2b698f325835e76799c0e5a30658360b2ac23130af8e5",
+      "context_slots": 6,
+      "input_token_count": 80,
       "novel_claims": 0,
       "policy": "homogeneous",
       "prompt_receipt": {
@@ -246,6 +284,8 @@
     {
       "candidate_count": 3,
       "context_hash": "157e31d65cd2b107cc80910a890585bd10a102930ec15bebeca9e1efb863b19e",
+      "context_slots": 6,
+      "input_token_count": 85,
       "novel_claims": 1,
       "policy": "heterogeneous",
       "prompt_receipt": {

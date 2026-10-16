@@ -11,6 +11,7 @@ v4.1 changes the substrate from structured feature coordinates to bounded textua
 - Claim-generation budget: each observer emits at most `B_C=3` claims.
 - Adjudicator: ranks claims by lexical action-change proxy relative to the stable summary, without a hard-coded shifted-topic ontology, and retains at most `B_J=4` claims.
 - Receipts: context hashes, request hashes, output hashes, adapter, model, endpoint, and latency for provider calls.
+- Each decision row also records `context_slots` and whitespace-token `input_token_count`; future provider comparisons should equalize or price token counts rather than treating document count as sufficient cost accounting.
 
 Two adapters are included:
 

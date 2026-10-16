@@ -33,6 +33,10 @@ def digest(value: object) -> str:
     return hashlib.sha256(json.dumps(value, sort_keys=True).encode()).hexdigest()
 
 
+def input_tokens(docs: list[dict]) -> int:
+    return sum(len(str(doc["text"]).split()) for doc in docs)
+
+
 def local_claims(docs: list[dict], regime: str, budget: int) -> list[dict]:
     # Deterministic bounded observer: extracts one claim per supplied document.
     return [{"source": d["id"], "claim": d["text"], "topic": d["topic"], "regime": regime} for d in docs[:budget]]
@@ -79,7 +83,7 @@ def run(adapter: str="local", model: str="gpt-5.6-luna", endpoint: str="https://
                 else: claims,receipt=provider_claims(docs,regime,model,endpoint,config.claim_budget)
                 selected=adjudicate(claims,regime,config.adjudication_budget,STABLE[:config.context_docs])
                 novel=sum(1 for c in selected if str(c.get("source", "")).startswith("r"))
-                rows.append({"seed":seed,"regime":regime,"policy":policy,"candidate_count":len(claims),"selected_count":len(selected),"novel_claims":novel,"context_hash":digest(docs),"prompt_receipt":receipt})
+                rows.append({"seed":seed,"regime":regime,"policy":policy,"context_slots":len(docs),"input_token_count":input_tokens(docs),"candidate_count":len(claims),"selected_count":len(selected),"novel_claims":novel,"context_hash":digest(docs),"prompt_receipt":receipt})
     return {"schema_version":"1.0","status":"synthetic_fixture_not_empirical","instrument":"semantic_c4_context_claims","adapter":adapter,"config":config.__dict__,"rows":rows,"interpretation_boundary":"Synthetic document/claim substrate only; not evidence about human or production-model behavior."}
 
 
