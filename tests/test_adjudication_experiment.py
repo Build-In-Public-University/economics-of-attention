@@ -45,6 +45,14 @@ class AdjudicationExperimentTests(unittest.TestCase):
         self.assertEqual({row["adjudication_budget"] for row in result["regime_probability_sweep"]}, {5, 10, 20, 40, 65})
         self.assertEqual({row["regime_change_probability"] for row in result["regime_probability_sweep"]}, {0.0, 0.25, 0.5, 0.75, 1.0})
 
+    def test_regime_risk_scores_candidates_against_active_regime(self):
+        result = run_adjudication_experiment(AdjudicationConfig(seeds=(0, 1), trials=200))
+        rows = result["regime_probability_sweep"]
+        stable = next(row for row in rows if row["adjudication_budget"] == 20 and row["regime_change_probability"] == 0.0)
+        shifted = next(row for row in rows if row["adjudication_budget"] == 20 and row["regime_change_probability"] == 1.0)
+        self.assertGreater(stable["expected_accuracy"], shifted["expected_accuracy"])
+        self.assertLessEqual(stable["false_positive_rate"], shifted["false_positive_rate"])
+
 
 if __name__ == "__main__":
     unittest.main()

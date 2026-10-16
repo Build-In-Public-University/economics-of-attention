@@ -32,7 +32,7 @@ The hub owns shared vocabulary, evidence conventions, and cross-paper research i
 - `docs/FOUNDATIONAL-CITATIONS.md` — verified source notes for Shannon, Hayek, Grossman–Stiglitz, and Vaswani.
 - `docs/FORMAL-MODEL.md` — standalone mathematical specification and claim boundary.
 - `docs/EXPERIMENT-ATTENTION-REGIME-SHIFT.md` — synthetic experiment contract for C1/C4.
-- `docs/EXPERIMENT-ADJUDICATION-LIMITED-EXPLORATION.md` — prospective Experiment 3 for pricing adjudication and noise.
+- `docs/EXPERIMENT-ADJUDICATION-LIMITED-EXPLORATION.md` — completed synthetic Experiment 3 for pricing adjudication and noise.
 - `src/attention_experiment.py` — dependency-free attention/compression instrument.
 - `src/adjudication_experiment.py` — adjudication-limited exploration instrument for Experiment 3.
 - `artifacts/attention-v1/` — machine-readable synthetic receipt.

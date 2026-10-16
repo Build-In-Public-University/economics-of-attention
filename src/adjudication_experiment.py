@@ -62,7 +62,7 @@ def _mean_metrics(rows: list[dict[str, float | int]]) -> dict[str, float | int]:
     return result
 
 
-def _one_policy(config: AdjudicationConfig, seed: int, explorers: int, policy: str, adjudication_budget: int | None = None) -> dict[str, float | int]:
+def _one_policy(config: AdjudicationConfig, seed: int, explorers: int, policy: str, active_causal: tuple[int, ...] | None = None, adjudication_budget: int | None = None) -> dict[str, float | int]:
     rng = random.Random(seed + explorers * 10007)
     expert = set(config.stable_causal)
     if policy == "homogeneous":
@@ -70,7 +70,7 @@ def _one_policy(config: AdjudicationConfig, seed: int, explorers: int, policy: s
     else:
         exploratory_supports = [set(rng.sample(range(config.feature_count), config.observer_budget)) for _ in range(explorers)]
         candidates = expert | set().union(*exploratory_supports) if exploratory_supports else expert
-    causal = set(config.shifted_causal)
+    causal = set(active_causal or config.shifted_causal)
     budget = adjudication_budget if adjudication_budget is not None else config.adjudication_budget
 
     if policy == "homogeneous":
@@ -96,7 +96,6 @@ def _one_policy(config: AdjudicationConfig, seed: int, explorers: int, policy: s
         raise ValueError(f"unknown policy: {policy}")
 
     accuracy = _accuracy(random.Random(seed * 31 + explorers + len(policy)), selected, causal, config)
-    stable_accuracy = _accuracy(random.Random(seed * 37 + explorers + len(policy)), selected, set(config.stable_causal), config)
     false_positives = len(selected - causal)
     false_positive_rate = false_positives / len(selected) if selected else 0.0
     coverage = len(selected & causal) / config.causal_width
@@ -105,11 +104,9 @@ def _one_policy(config: AdjudicationConfig, seed: int, explorers: int, policy: s
     adjudication_cost = evaluated * 0.002
     false_positive_cost = false_positives * 0.003
     net_utility = accuracy - observation_cost - adjudication_cost - false_positive_cost
-    stable_net_utility = stable_accuracy - observation_cost - adjudication_cost - false_positive_cost
+
     return {
         "accuracy": accuracy,
-        "stable_accuracy": stable_accuracy,
-        "stable_net_utility": stable_net_utility,
         "novel_signal_coverage": coverage,
         "candidate_count": len(candidates),
         "sampling_operations": sampling_operations,
@@ -132,19 +129,28 @@ def run_adjudication_experiment(config: AdjudicationConfig | None = None) -> dic
             "total_attention_slots": config.total_observers * config.observer_budget,
         }
         for policy in policies:
-            metrics = [_one_policy(config, seed, explorers, policy) for seed in config.seeds]
-            row[policy] = _mean_metrics(metrics)
+            stable_metrics = [_one_policy(config, seed, explorers, policy, config.stable_causal) for seed in config.seeds]
+            shifted_metrics = [_one_policy(config, seed, explorers, policy, config.shifted_causal) for seed in config.seeds]
+            shifted = _mean_metrics(shifted_metrics)
+            stable = _mean_metrics(stable_metrics)
+            shifted["stable_accuracy"] = stable["accuracy"]
+            shifted["stable_net_utility"] = stable["net_utility"]
+            row[policy] = shifted
         sweep.append(row)
     sensitivity = []
     for budget in (5, 10, 20, 40, 65):
         for probability in (0.0, 0.25, 0.5, 0.75, 1.0):
-            rows = [_one_policy(config, seed, max(config.exploratory_counts), "diverse_top_j", budget) for seed in config.seeds]
+            rows = []
+            for seed in config.seeds:
+                stable = _one_policy(config, seed, max(config.exploratory_counts), "diverse_top_j", config.stable_causal, budget)
+                shifted = _one_policy(config, seed, max(config.exploratory_counts), "diverse_top_j", config.shifted_causal, budget)
+                rows.append({"stable_accuracy": stable["accuracy"], "stable_net_utility": stable["net_utility"], "stable_false_positive_rate": stable["false_positive_rate"], "accuracy": shifted["accuracy"], "net_utility": shifted["net_utility"], "false_positive_rate": shifted["false_positive_rate"]})
             sensitivity.append({
                 "adjudication_budget": budget,
                 "regime_change_probability": probability,
                 "expected_accuracy": mean((1 - probability) * row["stable_accuracy"] + probability * row["accuracy"] for row in rows),
                 "expected_net_utility": mean((1 - probability) * row["stable_net_utility"] + probability * row["net_utility"] for row in rows),
-                "false_positive_rate": mean(row["false_positive_rate"] for row in rows),
+                "false_positive_rate": mean((1 - probability) * row["stable_false_positive_rate"] + probability * row["false_positive_rate"] for row in rows),
             })
     return {
         "schema_version": "1.0",
