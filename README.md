@@ -45,6 +45,8 @@ The hub owns shared vocabulary, evidence conventions, and cross-paper research i
 - `artifacts/attention-v4/` — historical OpenRouter receipt plus corrected local and `gpt-5.6-luna` Codex v4.1 receipts.
 - `artifacts/quality-gates/` — mechanical paper quality-gate receipt.
 - `game/attention-game.html` — local-only timed reading game: the paper disappears, then a causal-compression quiz produces a downloadable receipt.
+- `game/clean-session.html` — randomized local comparison between the progressive surface and a conventional PDF rendered from the same draft.
+- `game/standard-paper.pdf` — conventional-layout control artifact for the clean-session comparison.
 - `docs/HUB-CONNECTION.md` — explicit relationship to the shared research hub.
 - `scripts/validate.py` — dependency-free structural validator.
 - `tests/test_repository.py` — executable repository invariants.
@@ -66,3 +68,7 @@ The current receipt contains an information-abundance sweep and a cost-matched a
 ## Attention game
 
 The game is a self-contained local instrument for testing the paper's progressive-compression claim. Select a reading budget, read the bounded paper, then answer thesis/mechanism/economics/boundary/transfer questions after the source disappears. It reports a single-run score and `U(T)/T` efficiency and can export a JSON receipt. These are protocol observations, not evidence about human reader populations; population claims require controlled versions, randomized readers, and preregistered questions.
+
+### Clean session comparison
+
+`game/clean-session.html` randomly assigns a local run to either the progressive surface or `game/standard-paper.pdf`, holds the 180-second budget and five causal questions fixed, hides the assignment until scoring, then exports an arm-labeled receipt. The PDF is rendered from the same current draft to isolate presentation architecture from content. This is only a harness: it does not establish that one surface is better without randomized readers, frozen versions/hashes, a prespecified analysis, and enough independent runs.
