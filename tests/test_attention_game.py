@@ -29,6 +29,11 @@ class AttentionGameArtifactTests(unittest.TestCase):
         for marker in ("declared_budget_seconds", "actual_reading_seconds", "quiz_response_seconds", "U(T_R)/T_R"):
             self.assertIn(marker, text)
 
+    def test_receipt_carries_frozen_provenance(self):
+        text = GAME.read_text()
+        for marker in ("artifact_versions", "control_pdf_sha256", "question_set_sha256", "protocol_sha256"):
+            self.assertIn(marker, text)
+
 
 if __name__ == "__main__":
     unittest.main()

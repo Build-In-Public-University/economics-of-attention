@@ -1,0 +1,12 @@
+{
+  "schema": "attention-clean-session-protocol-v1",
+  "version": "clean-session-v1",
+  "reading_budget_seconds": 180,
+  "arms": ["progressive", "standard_pdf"],
+  "assignment": "local_random_uniform; assignment revealed only after scoring",
+  "participant_blinding": false,
+  "question_set": "question-set-v1.json",
+  "reading_metric": "U(T_R)/T_R",
+  "retrieval_metric": "T_Q",
+  "status": "instrument_scaffold_not_human_evidence"
+}

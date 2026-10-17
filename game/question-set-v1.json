@@ -1,0 +1,11 @@
+{
+  "schema": "attention-question-set-v1",
+  "questions": [
+    {"id":"thesis","dimension":"thesis","correct_option":1},
+    {"id":"mechanism","dimension":"mechanism","correct_option":1},
+    {"id":"economics","dimension":"economic_constraint","correct_option":2},
+    {"id":"boundary","dimension":"evidence_boundary","correct_option":2},
+    {"id":"transfer","dimension":"transfer","correct_option":2}
+  ],
+  "scoring": "one point per exact correct option; five questions total"
+}
