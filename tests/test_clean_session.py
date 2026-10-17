@@ -41,7 +41,7 @@ class CleanSessionTests(unittest.TestCase):
 
     def test_receipt_carries_frozen_provenance(self):
         text = GAME.read_text()
-        for marker in ("artifact_versions", "control_pdf_sha256", "question_set_sha256", "protocol_sha256", "progressive_stimulus", "render_latency_ms"):
+        for marker in ("artifact_versions", "control_pdf_sha256", "question_set_sha256", "protocol_sha256", "progressive_stimulus", "render_latency_ms", "stimulus_ready", "stimulus_load_failure"):
             self.assertIn(marker, text)
     def test_progressive_arm_uses_canonical_stimulus(self):
         text = GAME.read_text()
