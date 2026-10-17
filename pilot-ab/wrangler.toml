@@ -1,0 +1,8 @@
+name = "economics-of-attention-context-ab"
+compatibility_date = "2026-10-16"
+pages_build_output_dir = "site"
+
+[[d1_databases]]
+binding = "EVENTS"
+database_name = "economics-of-attention-context-ab"
+database_id = "9278ddd4-ac6f-44f6-a066-2c670674b480"

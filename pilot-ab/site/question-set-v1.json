@@ -1,0 +1,11 @@
+{
+  "schema": "attention-question-set-v1",
+  "questions": [
+    {"id":"thesis","dimension":"thesis","prompt":"What becomes scarce when information becomes abundant?","options":["Information itself","Efficient discrimination of consequential distinctions","Storage capacity","Consensus"],"correct_option":1},
+    {"id":"mechanism","dimension":"mechanism","prompt":"Why can expertise create blindness after a regime change?","options":["Experts stop learning permanently","Expert compression suppresses distinctions outside its retained support","Expertise always reduces accuracy","Scouts receive more total attention"],"correct_option":1},
+    {"id":"economics","dimension":"economic_constraint","prompt":"When is heterogeneous exploration worth paying for?","options":["Always","When every scout agrees","When expected action value of residual discovery exceeds exploration and adjudication costs","Only when the stable regime fails"],"correct_option":2},
+    {"id":"boundary","dimension":"evidence_boundary","prompt":"What does the GPT-5.6 Luna semantic receipt establish?","options":["A market effect","A human cognitive law","Behavior of a constructed synthetic document/claim protocol","Production AI reliability"],"correct_option":2},
+    {"id":"transfer","dimension":"transfer","prompt":"A hospital team repeatedly misses a new failure mode. What intervention best fits the framework?","options":["Give the same specialists more redundant observations","Remove all expertise","Preserve non-redundant scout views, then adjudicate and update the retained support","Ignore residuals until consensus forms"],"correct_option":2}
+  ],
+  "scoring": "one point per exact correct option; five questions total"
+}
