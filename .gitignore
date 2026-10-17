@@ -100,3 +100,6 @@ out/
 .cache/
 tmp/
 temp/
+
+.wrangler/
+pilot/.wrangler/
