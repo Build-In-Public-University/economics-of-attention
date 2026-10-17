@@ -43,6 +43,12 @@ class CleanSessionTests(unittest.TestCase):
         text = GAME.read_text()
         for marker in ("artifact_versions", "control_pdf_sha256", "question_set_sha256", "protocol_sha256"):
             self.assertIn(marker, text)
+    def test_progressive_arm_uses_canonical_stimulus(self):
+        text = GAME.read_text()
+        self.assertTrue((ROOT / "game/progressive-stimulus-v1.html").exists())
+        self.assertIn("progressive-stimulus-v1.html", text)
+        self.assertNotIn("Environment → expert compression → discarded residual", text)
+
     def test_receipt_marks_repeat_exposure(self):
         text = GAME.read_text()
         for marker in ("participant_id", "prior_exposure", "attention_exposure_v1", "progressive_surface_sha256"):
