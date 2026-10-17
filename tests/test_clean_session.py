@@ -1,4 +1,5 @@
 import unittest
+import json
 from pathlib import Path
 
 
@@ -13,6 +14,14 @@ class CleanSessionTests(unittest.TestCase):
         self.assertGreater(PDF.stat().st_size, 1000)
         self.assertEqual(PDF.read_bytes()[:5], b"%PDF-")
 
+    def test_question_manifest_freezes_full_stimuli(self):
+        manifest = json.loads((ROOT / "game/question-set-v1.json").read_text())
+        self.assertEqual(len(manifest["questions"]), 5)
+        for question in manifest["questions"]:
+            for field in ("id", "dimension", "prompt", "options", "correct_option"):
+                self.assertIn(field, question)
+            self.assertEqual(len(question["options"]), 4)
+
     def test_same_questions_and_hidden_arm_contract_are_present(self):
         text = GAME.read_text()
         for marker in ("standard_pdf", "progressive", "BUDGET=180", "source removed", "attention-clean-session-v0.1", "question_ids"):
@@ -22,8 +31,8 @@ class CleanSessionTests(unittest.TestCase):
 
     def test_clean_session_has_no_network_dependency(self):
         text = GAME.read_text()
-        self.assertNotIn("fetch(", text)
         self.assertNotIn("https://", text)
+        self.assertIn("question-set-v1.json", text)
 
     def test_receipt_separates_reading_and_quiz_time(self):
         text = GAME.read_text()
@@ -33,6 +42,10 @@ class CleanSessionTests(unittest.TestCase):
     def test_receipt_carries_frozen_provenance(self):
         text = GAME.read_text()
         for marker in ("artifact_versions", "control_pdf_sha256", "question_set_sha256", "protocol_sha256"):
+            self.assertIn(marker, text)
+    def test_receipt_marks_repeat_exposure(self):
+        text = GAME.read_text()
+        for marker in ("participant_id", "prior_exposure", "attention_clean_seen"):
             self.assertIn(marker, text)
 
 

@@ -59,7 +59,8 @@ python3 scripts/validate.py
 python3 -m unittest discover -s tests -v
 python3 scripts/quality_gate.py
 python3 -m src.attention_experiment --output artifacts/attention-v1/attention-regime-shift.json
-open game/attention-game.html
+python3 -m http.server 8877
+# open http://127.0.0.1:8877/game/attention-game.html
 ```
 
 A passing validator establishes repository structure and claim metadata only. The quality gate establishes mechanical consistency of the declared draft and claim ledger; it does not establish the theory, empirical predictions, or any causal result.
@@ -72,4 +73,4 @@ The game is a self-contained local instrument for testing the paper's progressiv
 
 ### Clean session comparison
 
-`game/clean-session.html` randomly assigns a local run to either the progressive surface or `game/standard-paper.pdf`, holds the 180-second budget and five causal questions fixed, conceals the assignment in the receipt until scoring, then exports an arm-labeled receipt. Every receipt carries the progressive version ID plus SHA-256 hashes for the control PDF, question set, and protocol manifest. The participant can of course see whether the surface is a PDF or progressive page; this is assignment concealment, not blinding. The PDF is rendered from the same current draft to isolate presentation architecture from content. In its current form this is Experiment A: a system-level comparison of full conventional paper versus intentionally compressed progressive artifact. A future Experiment B must hold semantic payload and approximate word count fixed to isolate routing/hierarchy alone. This is only a harness: it does not establish that one surface is better without randomized readers, frozen versions/hashes, a prespecified analysis, and enough independent runs.
+`game/clean-session.html` randomly assigns a local run to either the progressive surface or `game/standard-paper.pdf`, holds the 180-second budget and five causal questions fixed, conceals the assignment in the receipt until scoring, then exports an arm-labeled receipt. The HTML loads the complete question stimuli from `question-set-v1.json`; it does not maintain a second inline copy. Every receipt carries the progressive version ID plus SHA-256 hashes for the control PDF, question set, and protocol manifest, along with a local anonymous participant/session identifier and `prior_exposure` flag so repeat plays are not silently treated as independent observations. The participant can of course see whether the surface is a PDF or progressive page; this is assignment concealment, not blinding. The PDF is rendered from the same current draft to isolate presentation architecture from content. In its current form this is Experiment A: a system-level comparison of full conventional paper versus intentionally compressed progressive artifact. A future Experiment B must hold semantic payload and approximate word count fixed to isolate routing/hierarchy alone. This is only a harness: it does not establish that one surface is better without randomized readers, frozen versions/hashes, a prespecified analysis, and enough independent runs.

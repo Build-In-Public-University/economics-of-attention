@@ -9,10 +9,10 @@ GAME = ROOT / "game/attention-game.html"
 class AttentionGameArtifactTests(unittest.TestCase):
     def test_game_is_self_contained_and_local_only(self):
         text = GAME.read_text()
-        self.assertIn("No network calls", text)
+        self.assertIn("No external network calls", text)
         self.assertIn("crypto.randomUUID", text)
-        self.assertNotIn("fetch(", text)
         self.assertNotIn("https://", text)
+        self.assertIn("question-set-v1.json", text)
 
     def test_game_enforces_bounded_reading_then_quiz(self):
         text = GAME.read_text()
@@ -21,7 +21,7 @@ class AttentionGameArtifactTests(unittest.TestCase):
 
     def test_questions_cover_consequential_model_not_trivia(self):
         text = GAME.read_text()
-        for marker in ("Thesis", "Mechanism", "Economic constraint", "Evidence boundary", "Transfer", "U(T_R)/T_R"):
+        for marker in ("question-set-v1.json", "U(T_R)/T_R"):
             self.assertIn(marker, text)
 
     def test_receipt_separates_reading_and_quiz_time(self):
@@ -32,6 +32,10 @@ class AttentionGameArtifactTests(unittest.TestCase):
     def test_receipt_carries_frozen_provenance(self):
         text = GAME.read_text()
         for marker in ("artifact_versions", "control_pdf_sha256", "question_set_sha256", "protocol_sha256"):
+            self.assertIn(marker, text)
+    def test_receipt_marks_repeat_exposure(self):
+        text = GAME.read_text()
+        for marker in ("participant_id", "prior_exposure", "attention_game_seen"):
             self.assertIn(marker, text)
 
 
