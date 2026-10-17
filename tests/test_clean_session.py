@@ -45,7 +45,7 @@ class CleanSessionTests(unittest.TestCase):
             self.assertIn(marker, text)
     def test_receipt_marks_repeat_exposure(self):
         text = GAME.read_text()
-        for marker in ("participant_id", "prior_exposure", "attention_clean_seen"):
+        for marker in ("participant_id", "prior_exposure", "attention_exposure_v1", "progressive_surface_sha256"):
             self.assertIn(marker, text)
 
 
