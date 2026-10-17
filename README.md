@@ -45,6 +45,7 @@ The hub owns shared vocabulary, evidence conventions, and cross-paper research i
 - `artifacts/attention-v4/` — historical OpenRouter receipt plus corrected local and `gpt-5.6-luna` Codex v4.1 receipts.
 - `artifacts/quality-gates/` — mechanical paper quality-gate receipt.
 - `game/attention-game.html` — local-only timed reading game: the paper disappears, then a causal-compression quiz produces a downloadable receipt.
+- `game/context-surface-v1.html` — exploratory reader-controlled context prototype: pre-reading interaction demo, selection-length-sensitive explanations, local context cache, and overlap highlights. It is separate from the frozen pilot surface.
 - `game/clean-session.html` — randomized local comparison between the progressive surface and a conventional PDF rendered from the same draft.
 - `game/standard-paper.pdf` — conventional-layout control artifact for the clean-session comparison.
 - `game/question-set-v1.json`, `game/progressive-stimulus-v1.html`, and `game/clean-session-protocol-v1.json` — frozen question, progressive-stimulus, and protocol manifests whose hashes are carried in every game receipt.
